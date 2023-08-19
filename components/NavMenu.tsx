@@ -16,7 +16,7 @@ const navLinks: NavLink[] = [
 export const NavMenu: React.FC = () => {
   return (
     <nav>
-      <ul className="flex flex-col items-center gap-12 md:flex-row md:gap-6">
+      <ul className="flex flex-col items-center gap-12 md:flex-row md:gap-6 xl:gap-14">
         {navLinks.map(nav => (
           <li
             key={nav.id}
