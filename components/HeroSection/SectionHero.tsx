@@ -26,6 +26,7 @@ export const SectionHero = () => {
 
   return (
     <section
+      id="hero"
       className={`${
         isScreenDesktop ? 'section-hero-desktop' : 'section-hero'
       } block w-full`}

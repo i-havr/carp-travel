@@ -82,6 +82,8 @@ code {
     monospace;
 }
 
+/* HERO STYLES */
+
 .section-hero {
   background-image: linear-gradient(
       to bottom,
@@ -89,7 +91,7 @@ code {
       rgba(0, 37, 49, 0)
     ),
     linear-gradient(rgba(2, 15, 8, 0.3), rgba(2, 15, 8, 0.3)),
-    url('/assets/images/bg-hero-mobile-tablet.jpg');
+    url('/assets/images/hero-section/bg-hero-mobile-tablet.jpg');
   background-size: 100% 287px, cover, cover;
   background-position: 0 0, center, center;
   background-repeat: no-repeat;
@@ -102,7 +104,7 @@ code {
       rgba(0, 37, 49, 0)
     ),
     linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),
-    url('/assets/images/bg-hero-desktop.jpg');
+    url('/assets/images/hero-section/bg-hero-desktop.jpg');
   background-size: 100% 172px, cover, cover;
   background-position: 0 0, center, center;
   background-repeat: no-repeat;
@@ -120,4 +122,45 @@ code {
   z-index: 5;
   background-color: rgba(1, 10, 5, 0.75);
   backdrop-filter: blur(15px);
+}
+
+/* ABOUT STYLES */
+
+.section-about {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 24, 38, 0.8),
+      rgba(0, 37, 49, 0)
+    ),
+    linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),
+    url('/assets/images/about-section/bg-about-mobile.jpg');
+  background-size: 100% 247px, cover, cover;
+  background-position: 0 0, center, center;
+  background-repeat: no-repeat;
+}
+
+.section-about-tablet {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 24, 38, 0.8),
+      rgba(0, 37, 49, 0)
+    ),
+    linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),
+    url('/assets/images/about-section/bg-about-tablet.jpg');
+  background-size: 100% 247px, cover, cover;
+  background-position: 0 0, center, start;
+  background-repeat: no-repeat;
+}
+
+.section-about-desktop {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 24, 38, 0.8),
+      rgba(0, 37, 49, 0)
+    ),
+    linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),
+    url('/assets/images/about-section/bg-about-desktop.jpg');
+  background-size: 100% 258px, cover, cover;
+  background-position: 0 0, center, start;
+  background-repeat: no-repeat;
 }

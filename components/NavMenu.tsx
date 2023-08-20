@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 
 interface NavLink {
   id: string;
@@ -26,7 +27,15 @@ export const NavMenu: React.FC = () => {
             //   } hover:text-white text-[18px] font-medium cursor-pointer`}
             //   onClick={() => setActive(nav.title)}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <Link
+              to={`${nav.id}`}
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              {nav.title}
+            </Link>
           </li>
         ))}
       </ul>

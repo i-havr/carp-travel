@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 
 // const SCREEN_MOBILE = 320;
+const LARGE_SCREEN_MOBILE = 480;
 const SCREEN_TABLET = 768;
 const SCREEN_DESKTOP = 1280;
 const LARGE_SCREEN_DESKTOP = 1440;
@@ -27,6 +28,8 @@ export const useWindowWidth = () => {
   }, [width]);
 
   const isScreenMobile = width < SCREEN_TABLET;
+  const isLargeScreenMobile =
+    width >= LARGE_SCREEN_MOBILE && width < SCREEN_TABLET;
   const isScreenTablet = width >= SCREEN_TABLET && width < SCREEN_DESKTOP;
   const isScreenDesktop = width >= SCREEN_DESKTOP;
   const isLargeScreenDesktop = width >= LARGE_SCREEN_DESKTOP;
@@ -34,6 +37,7 @@ export const useWindowWidth = () => {
   return {
     width,
     isScreenMobile,
+    isLargeScreenMobile,
     isScreenTablet,
     isScreenDesktop,
     isLargeScreenDesktop,
