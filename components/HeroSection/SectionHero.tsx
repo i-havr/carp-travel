@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Header } from '@/components/Header';
-import { Button } from './Button';
+import { LinkButton } from './LinkButton';
 import { HeroTitle } from './HeroTitle';
 import { HeroMotto } from './HeroMotto';
 import { HeroPlacesList } from './HeroPlacesList';
@@ -17,12 +17,8 @@ import svgLeftDesktop from '@/public/assets/icons/1svgFrame-desktop.svg';
 import svgRightDesktop from '@/public/assets/icons/2svgFrame-desktop.svg';
 import { useWindowWidth } from '@/hooks';
 
-export const SectionHero = () => {
+export const SectionHero: React.FC = () => {
   const { isScreenMobile, isScreenTablet, isScreenDesktop } = useWindowWidth();
-
-  const handleGoToContacts = () => {
-    console.log('click on the JOIN button!');
-  };
 
   return (
     <section
@@ -40,7 +36,7 @@ export const SectionHero = () => {
             <HeroMotto />
             <HeroPlacesList />
             <HeroOfferDescription />
-            <Button actionHandler={handleGoToContacts}>
+            <LinkButton>
               <Image
                 src={svgLeftMobile}
                 alt="Left frame"
@@ -60,7 +56,7 @@ export const SectionHero = () => {
                 aria-hidden="true"
                 priority
               />
-            </Button>
+            </LinkButton>
           </>
         ) : (
           <div className="flex justify-between">
@@ -72,7 +68,7 @@ export const SectionHero = () => {
             <div className="flex flex-col w-[233px] xl:w-[310px]">
               <HeroTitle />
               <HeroOfferDescription />
-              <Button actionHandler={handleGoToContacts}>
+              <LinkButton>
                 <Image
                   src={isScreenTablet ? svgLeftTablet : svgLeftDesktop}
                   alt="Left frame"
@@ -92,7 +88,7 @@ export const SectionHero = () => {
                   aria-hidden="true"
                   priority
                 />
-              </Button>
+              </LinkButton>
             </div>
           </div>
         )}
