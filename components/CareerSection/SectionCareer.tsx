@@ -12,7 +12,6 @@ import { CareerForm } from './CareerForm';
 
 import { careerFeatures } from '@/helpers';
 import { useWindowWidth } from '@/hooks';
-import { features } from 'process';
 
 export const SectionCareer: React.FC = () => {
   const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
@@ -24,13 +23,7 @@ export const SectionCareer: React.FC = () => {
     }
   }, [isFirstRender]);
 
-  const {
-    width,
-    isScreenMobile,
-    isLargeScreenMobile,
-    isScreenTablet,
-    isScreenDesktop,
-  } = useWindowWidth();
+  const { isScreenMobile, isScreenTablet, isScreenDesktop } = useWindowWidth();
 
   return (
     <>

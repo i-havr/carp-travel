@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: { inter: ['Inter', 'sans-serif'] },
-      backgroundColor: { input: 'rgba(255, 255, 255, 0.05)' },
+      backgroundColor: { input: 'rgba(255, 255, 255, 0.1)' },
+      colors: { 'error-input': 'rgba(255, 87, 87, 1)' },
     },
   },
   plugins: [],
