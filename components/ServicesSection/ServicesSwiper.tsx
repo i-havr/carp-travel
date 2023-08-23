@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
 import SwiperCore from 'swiper';
@@ -22,8 +22,17 @@ export const ServicesSwiper: React.FC<Props> = ({
   handleSlideChange,
   setSwiper,
 }: Props) => {
+  const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
   const swiperRef = useRef<SwiperRef>(null);
-  return (
+
+  useEffect(() => {
+    if (isFirstRender) {
+      setIsFirstRender(false);
+      return;
+    }
+  }, [isFirstRender]);
+
+  return !isFirstRender ? (
     <Swiper
       ref={swiperRef}
       lazyPreloadPrevNext={1}
@@ -31,7 +40,7 @@ export const ServicesSwiper: React.FC<Props> = ({
       allowTouchMove={false}
       onSlideChange={handleSlideChange}
       onSwiper={swiper => setSwiper(swiper)}
-      className="w-full h-full mb-3"
+      className="w-full h-full mb-3 md:mb-0"
       effect="fade"
       speed={1000}
       spaceBetween={20}
@@ -44,5 +53,5 @@ export const ServicesSwiper: React.FC<Props> = ({
         );
       })}
     </Swiper>
-  );
+  ) : null;
 };

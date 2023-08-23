@@ -10,8 +10,8 @@ export const ServicesDescription: React.FC<Props> = ({
   return (
     <p
       className="min-h-[120px] font-extralight text-sm text-start leading-[1.43]
-    md:w-[222px] md:text-base 
-    xl:w-[292px] xl:text-lg md:mb-4 md:leading-[1.25] xl:mb-6 xl:leading-[1.33]"
+    md:w-full md:min-h-0 md:text-[13px] md:leading-[1.54]
+    xl:w-full xl:text-justify xl:text-lg xl:leading-[1.33]"
     >
       {description}
     </p>

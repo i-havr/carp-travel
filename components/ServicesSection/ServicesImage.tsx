@@ -1,5 +1,5 @@
 import React from 'react';
-import { Service } from '@/helpers/services-info';
+import { Service } from '@/helpers';
 
 interface Props {
   service: Service;
@@ -7,7 +7,7 @@ interface Props {
 
 export const ServicesImage: React.FC<Props> = ({ service }: Props) => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <picture>
         <source
           srcSet={`${service.imageDesktopUrl} 1x, ${service.imageDesktopRetinaUrl} 2x`}
@@ -15,10 +15,10 @@ export const ServicesImage: React.FC<Props> = ({ service }: Props) => {
         />
         <source
           srcSet={`${service.imageMobileTabletUrl} 1x, ${service.imageMobileTabletRetinaUrl} 2x`}
-          media="(max-width: 1279px)"
+          media="(max-width: 1280px)"
         />
         <img
-          //   loading={service.id === 1 ? undefined : 'lazy'}
+          // loading={service.id === 1 ? undefined : 'lazy'}
           className="scale-[1.01]"
           data-src={`${service.imageMobileTabletUrl}`}
           alt={service.name}

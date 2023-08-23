@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { LinkButton } from './LinkButton';
 import { HeroTitle } from './HeroTitle';
@@ -15,17 +15,29 @@ import svgLeftTablet from '@/public/assets/icons/1svgFrame-tablet.svg';
 import svgRightTablet from '@/public/assets/icons/2svgFrame-tablet.svg';
 import svgLeftDesktop from '@/public/assets/icons/1svgFrame-desktop.svg';
 import svgRightDesktop from '@/public/assets/icons/2svgFrame-desktop.svg';
+
 import { useWindowWidth } from '@/hooks';
 
 export const SectionHero: React.FC = () => {
+  const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
   const { isScreenMobile, isScreenTablet, isScreenDesktop } = useWindowWidth();
+
+  useEffect(() => {
+    if (isFirstRender) {
+      setIsFirstRender(false);
+      return;
+    }
+  }, [isFirstRender]);
 
   return (
     <section
       id="hero"
       className={`${
-        isScreenDesktop ? 'section-hero-desktop' : 'section-hero'
-      } block w-full`}
+        !isFirstRender && isScreenDesktop ? 'section-hero-desktop' : ''
+      } 
+        ${
+          !isFirstRender && !isScreenDesktop ? 'section-hero' : ''
+        } block w-full`}
     >
       <div className="container max-w-[480px] ml-auto mr-auto pt-9 pr-5 pb-14 pl-5 md:max-w-3xl md:pt-6 md:pr-8 md:pb-16 md:pl-8 xl:max-w-7xl xl:pt-6 xl:pr-6 xl:pb-[104px] xl:pl-6">
         <Header />

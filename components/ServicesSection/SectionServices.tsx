@@ -13,7 +13,7 @@ import { ServicesMotto } from './ServicesMotto';
 import { ServicesSlidesList } from './ServicesSlidesList';
 import { ServicesDescription } from './ServicesDescription';
 import { useWindowWidth } from '@/hooks';
-import { services, changeBackground } from '@/helpers';
+import { services, changeBackground, setSectionBgStyle } from '@/helpers';
 
 export const SectionServices: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState<number>(1);
@@ -21,37 +21,15 @@ export const SectionServices: React.FC = () => {
     ''
   );
   const [swiper, setSwiper] = useState<SwiperCore>();
-  const {
-    isScreenMobile,
-    isLargeScreenMobile,
-    isScreenTablet,
-    isScreenDesktop,
-  } = useWindowWidth();
+  const { isScreenMobile, isScreenTablet, isScreenDesktop } = useWindowWidth();
 
   const currentSlide = services.find(slide => slide.id === activeSlide);
 
-  const sectionBgStyle = {
-    backgroundImage: `linear-gradient(
-      to bottom,
-      rgba(0, 24, 38, 0.8),
-      rgba(0, 37, 49, 0)
-    ),
-    linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)), url(${currentSectionBg})`,
-    backgroundSize: '100% 247px, cover, cover',
-    backgroundPosition: '0 0, center, center',
-    backgroundRepeat: 'no-repeat',
-  };
-
   useEffect(() => {
     if (currentSlide) {
-      changeBackground(
-        currentSlide,
-        isScreenMobile,
-        isScreenTablet,
-        setCurrentSectionBg
-      );
+      changeBackground(currentSlide, setCurrentSectionBg);
     }
-  }, [currentSlide, currentSlide?.id, isScreenMobile, isScreenTablet]);
+  }, [currentSlide, isScreenMobile, isScreenTablet]);
 
   const handleSlideChange = (swiper: SwiperCore) => {
     setActiveSlide(swiper.activeIndex + 1);
@@ -67,10 +45,10 @@ export const SectionServices: React.FC = () => {
   return (
     <section
       id="services"
-      className="section-services block w-full"
-      style={sectionBgStyle}
+      style={setSectionBgStyle(currentSectionBg).services}
+      className="block w-full"
     >
-      <div className="container max-w-[480px] ml-auto mr-auto pt-[54px] pr-5 pb-14 pl-5 md:max-w-3xl md:pt-16 md:pr-8 md:pb-16 md:pl-8 xl:max-w-7xl xl:pt-[104px] xl:pr-6 xl:pb-[104px] xl:pl-6">
+      <div className="container max-w-[480px] ml-auto mr-auto pt-[54px] pr-5 pb-14 pl-5 md:flex md:justify-between md:max-w-3xl md:pt-16 md:pr-8 md:pb-16 md:pl-8 xl:max-w-7xl xl:pt-[104px] xl:pr-6 xl:pb-[104px] xl:pl-6">
         {isScreenMobile ? (
           <>
             <ServicesTitle />
@@ -92,38 +70,64 @@ export const SectionServices: React.FC = () => {
             <ServicesDescription description={currentSlide?.description} />
           </>
         ) : isScreenTablet ? (
-          <div className="flex flex-col">
-            <div className="flex justify-between">
+          <>
+            <div className="flex flex-col gap-9 w-[463px]">
               <ServicesTitle />
-              <ServicesPagination
-                activeSlide={activeSlide}
-                total={services.length}
-              />
-            </div>
-            <div className="flex justify-between">
               <ServicesSwiper
                 services={services}
                 handleSlideChange={handleSlideChange}
                 setSwiper={setSwiper}
               />
-              <div className="flex flex-col">
+            </div>
+            <div className="flex flex-col gap-9 w-[222px]">
+              <ServicesPagination
+                activeSlide={activeSlide}
+                total={services.length}
+              />
+              <div className="flex flex-col justify-between h-full">
+                <div className="flex flex-col">
+                  <ServicesSlidesList
+                    services={services}
+                    currentSlide={activeSlide}
+                    actionHandler={handleGoToSlideByClick}
+                  />
+                  <ServicesMotto motto={currentSlide?.motto} />
+                </div>
+                <ServicesDescription description={currentSlide?.description} />
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="flex flex-row justify-between w-full">
+            <div className="flex flex-row gap-5 w-[900px]">
+              <div className="flex flex-col gap-6 w-[607px]">
+                <ServicesTitle />
+                <ServicesSwiper
+                  services={services}
+                  handleSlideChange={handleSlideChange}
+                  setSwiper={setSwiper}
+                />
+              </div>
+
+              <div className="flex flex-col gap-6 w-auto">
+                <ServicesPagination
+                  activeSlide={activeSlide}
+                  total={services.length}
+                />
+
                 <ServicesSlidesList
                   services={services}
                   currentSlide={activeSlide}
+                  isScreenDesktop={isScreenDesktop}
+                  motto={currentSlide?.motto}
                   actionHandler={handleGoToSlideByClick}
                 />
-                <ServicesMotto motto={currentSlide?.motto} />
-                <ServicesDescription />
               </div>
             </div>
-          </div>
-        ) : (
-          <div className="flex flex-col gap-[72px]">
-            <div className="flex flex-row justify-start gap-9">
-              <ServicesTitle />
-              <ServicesDescription />
+
+            <div className="flex flex-col justify-end w-[293px]">
+              <ServicesDescription description={currentSlide?.description} />
             </div>
-            <div className="flex flex-row justify-between"></div>
           </div>
         )}
       </div>

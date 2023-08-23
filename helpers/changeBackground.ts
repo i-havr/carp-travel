@@ -1,23 +1,21 @@
-import { Service } from './services-info';
+import { Service } from './servicesData';
 
 export const changeBackground = (
   currentSlide: Service,
-  isScreenMobile: boolean,
-  isScreenTablet: boolean,
   setCurrentSectionBg: (bgImage: string | undefined) => void
 ) => {
   const isRetina = Math.round(window?.devicePixelRatio) > 1;
+  const width = window.innerWidth;
 
-  if (isScreenMobile || isScreenTablet) {
+  if (width < 1280) {
     const bgImage = isRetina
       ? currentSlide?.bgMobileTabletRetinaImageUrl
       : currentSlide?.bgMobileTabletImageUrl;
     setCurrentSectionBg(bgImage);
   } else {
     const bgImage = isRetina
-      ? currentSlide?.bgMobileTabletRetinaImageUrl
-      : currentSlide?.bgMobileTabletImageUrl;
-    console.log('bgImage', bgImage);
+      ? currentSlide?.bgDesktopRetinaImageUrl
+      : currentSlide?.bgDesktopImageUrl;
     setCurrentSectionBg(bgImage);
   }
 };

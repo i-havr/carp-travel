@@ -6,6 +6,10 @@ interface NavLink {
   title: string;
 }
 
+interface Props {
+  closeMenu?: (() => void) | undefined;
+}
+
 const navLinks: NavLink[] = [
   { id: 'about', title: 'About' },
   { id: 'services', title: 'Services' },
@@ -14,7 +18,7 @@ const navLinks: NavLink[] = [
   { id: 'contacts', title: 'Contacts' },
 ];
 
-export const NavMenu: React.FC = () => {
+export const NavMenu: React.FC<Props> = ({ closeMenu }: Props) => {
   return (
     <nav>
       <ul className="flex flex-col items-center gap-12 md:flex-row md:gap-6 xl:gap-14">
@@ -28,11 +32,13 @@ export const NavMenu: React.FC = () => {
             //   onClick={() => setActive(nav.title)}
           >
             <Link
+              className="cursor-pointer"
               to={`${nav.id}`}
               spy={true}
               smooth={true}
-              offset={50}
+              offset={0}
               duration={500}
+              onClick={closeMenu}
             >
               {nav.title}
             </Link>

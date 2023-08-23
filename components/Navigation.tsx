@@ -25,7 +25,7 @@ export const Navigation: React.FC = () => {
       </button>
       {isModalOpen && (
         <div className="menu-container absolute top-0 left-0 flex justify-center items-center w-screen h-screen">
-          <NavMenu />
+          <NavMenu closeMenu={isModalOpen && handleToggleMenu} />
         </div>
       )}
     </>

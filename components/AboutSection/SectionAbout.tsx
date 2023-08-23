@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { AboutTitle } from './AboutTitle';
 import { AboutLargeDescription } from './AboutLargeDescription';
@@ -8,8 +8,18 @@ import { AboutMotto } from './AboutMotto';
 import { AboutMethods } from './AboutMethods';
 import { useWindowWidth } from '@/hooks';
 
-export const SectionAbout = () => {
+export const SectionAbout: React.FC = () => {
+  const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (isFirstRender) {
+      setIsFirstRender(false);
+      return;
+    }
+  }, [isFirstRender]);
+
   const {
+    width,
     isScreenMobile,
     isLargeScreenMobile,
     isScreenTablet,
@@ -19,13 +29,11 @@ export const SectionAbout = () => {
   return (
     <section
       id="about"
-      className={`${
-        isLargeScreenMobile
-          ? 'section-about-tablet'
-          : isScreenTablet || isScreenDesktop
-          ? 'section-about-desktop'
-          : 'section-about'
-      } block w-full`}
+      className={`${isLargeScreenMobile ? 'section-about-tablet' : ''}
+          ${isScreenTablet || isScreenDesktop ? 'section-about-desktop' : ''}
+          ${
+            width! < 480 && !isFirstRender ? 'section-about' : ''
+          } block w-full`}
     >
       <div className="container max-w-[480px] ml-auto mr-auto pt-[55px] pr-5 pb-[54px] pl-5 md:max-w-3xl md:pt-16 md:pr-8 md:pb-16 md:pl-8 xl:max-w-7xl xl:pt-[104px] xl:pr-6 xl:pb-[104px] xl:pl-6">
         {isScreenMobile ? (

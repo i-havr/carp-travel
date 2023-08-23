@@ -1,3 +1,5 @@
-export * from './changeSlide';
+export * from './changeBackground';
 export * from './formatNumber';
-export * from './services-info';
+export * from './servicesData';
+export * from './setSectionBgStyle';
+export * from './careerData';
