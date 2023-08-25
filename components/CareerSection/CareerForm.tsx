@@ -5,8 +5,7 @@ import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 
 import { formatPhone } from '@/helpers';
 import { useWindowWidth } from '@/hooks';
-import Image from 'next/image';
-import svgRedCross from '@/public/assets/icons/red-cross.svg';
+import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
 type Inputs = {
   fullName: string;
@@ -28,7 +27,7 @@ export const CareerForm = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const { isScreenMobile, isScreenTablet, isScreenDesktop } = useWindowWidth();
+  const { isScreenMobile } = useWindowWidth();
 
   const onSubmit: SubmitHandler<Inputs> = data => {
     console.log('You have just sent data => ', data);
@@ -76,15 +75,7 @@ export const CareerForm = () => {
 
               {errors.fullName && (
                 <span className="error-message">
-                  <Image
-                    src={svgRedCross}
-                    alt="Red cross icon"
-                    className="h-full"
-                    width={0}
-                    height={0}
-                    aria-hidden="true"
-                    priority
-                  />
+                  <SvgRedCross style={{ height: '10px' }} />
                   Incorrect name
                 </span>
               )}
@@ -115,15 +106,7 @@ export const CareerForm = () => {
 
               {errors.email && (
                 <span className="error-message">
-                  <Image
-                    src={svgRedCross}
-                    alt="Red cross icon"
-                    className="h-full"
-                    width={0}
-                    height={0}
-                    aria-hidden="true"
-                    priority
-                  />
+                  <SvgRedCross style={{ height: '10px' }} />
                   Incorrect E-mail
                 </span>
               )}
@@ -153,15 +136,7 @@ export const CareerForm = () => {
 
               {errors.position && (
                 <span className="error-message">
-                  <Image
-                    src={svgRedCross}
-                    alt="Red cross icon"
-                    className="h-full"
-                    width={0}
-                    height={0}
-                    aria-hidden="true"
-                    priority
-                  />
+                  <SvgRedCross style={{ height: '10px' }} />
                   Incorrect position
                 </span>
               )}
@@ -204,15 +179,7 @@ export const CareerForm = () => {
               </span>
               {errors.phone && (
                 <span className="error-message">
-                  <Image
-                    src={svgRedCross}
-                    alt="Red cross icon"
-                    className="h-full"
-                    width={0}
-                    height={0}
-                    aria-hidden="true"
-                    priority
-                  />
+                  <SvgRedCross style={{ height: '10px' }} />
                   Incorrect phone
                 </span>
               )}
@@ -237,15 +204,7 @@ export const CareerForm = () => {
 
               {errors.message && (
                 <span className="absolute right-0 top-full flex items-center gap-[6px] font-extralight text-xs leading-[2] tracking-[2.4px]">
-                  <Image
-                    src={svgRedCross}
-                    alt="Red cross icon"
-                    className="h-full"
-                    width={0}
-                    height={0}
-                    aria-hidden="true"
-                    priority
-                  />
+                  <SvgRedCross style={{ height: '10px' }} />
                   Incorrect message
                 </span>
               )}
@@ -269,16 +228,8 @@ export const CareerForm = () => {
                   errors.agree ? 'text-error-input' : ''
                 }`}
               >
-                <Image
-                  src={svgRedCross}
-                  alt="Red cross icon"
-                  className="h-full"
-                  width={0}
-                  height={0}
-                  aria-hidden="true"
-                  priority
-                />
-                You must accept the terms
+                <SvgRedCross style={{ height: '10px' }} />
+                Must be accepted
               </span>
             )}
           </label>
@@ -319,15 +270,7 @@ export const CareerForm = () => {
 
                 {errors.fullName && (
                   <span className="error-message">
-                    <Image
-                      src={svgRedCross}
-                      alt="Red cross icon"
-                      className="h-full"
-                      width={0}
-                      height={0}
-                      aria-hidden="true"
-                      priority
-                    />
+                    <SvgRedCross style={{ height: '10px' }} />
                     Incorrect name
                   </span>
                 )}
@@ -359,15 +302,7 @@ export const CareerForm = () => {
 
                 {errors.email && (
                   <span className="error-message">
-                    <Image
-                      src={svgRedCross}
-                      alt="Red cross icon"
-                      className="h-full"
-                      width={0}
-                      height={0}
-                      aria-hidden="true"
-                      priority
-                    />
+                    <SvgRedCross style={{ height: '10px' }} />
                     Incorrect E-mail
                   </span>
                 )}
@@ -397,15 +332,7 @@ export const CareerForm = () => {
 
                 {errors.position && (
                   <span className="error-message">
-                    <Image
-                      src={svgRedCross}
-                      alt="Red cross icon"
-                      className="h-full"
-                      width={0}
-                      height={0}
-                      aria-hidden="true"
-                      priority
-                    />
+                    <SvgRedCross style={{ height: '10px' }} />
                     Incorrect position
                   </span>
                 )}
@@ -448,15 +375,7 @@ export const CareerForm = () => {
                 </span>
                 {errors.phone && (
                   <span className="error-message">
-                    <Image
-                      src={svgRedCross}
-                      alt="Red cross icon"
-                      className="h-full"
-                      width={0}
-                      height={0}
-                      aria-hidden="true"
-                      priority
-                    />
+                    <SvgRedCross style={{ height: '10px' }} />
                     Incorrect phone
                   </span>
                 )}
@@ -480,16 +399,8 @@ export const CareerForm = () => {
                     errors.agree ? 'text-error-input' : ''
                   }`}
                 >
-                  <Image
-                    src={svgRedCross}
-                    alt="Red cross icon"
-                    className="h-full"
-                    width={0}
-                    height={0}
-                    aria-hidden="true"
-                    priority
-                  />
-                  You must accept the terms
+                  <SvgRedCross style={{ height: '10px' }} />
+                  Must be accepted
                 </span>
               )}
             </label>
@@ -513,16 +424,8 @@ export const CareerForm = () => {
                 />
 
                 {errors.message && (
-                  <span className="absolute right-0 top-full flex items-center gap-[6px] font-extralight text-xs leading-[2] tracking-[2.4px]">
-                    <Image
-                      src={svgRedCross}
-                      alt="Red cross icon"
-                      className="h-full"
-                      width={0}
-                      height={0}
-                      aria-hidden="true"
-                      priority
-                    />
+                  <span className="absolute right-0 top-full md:top-[98%] flex items-center gap-[6px] font-extralight text-xs leading-[2] tracking-[2.4px]">
+                    <SvgRedCross style={{ height: '10px' }} />
                     Incorrect message
                   </span>
                 )}

@@ -332,6 +332,7 @@ code {
   right: 0;
   bottom: -100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 6px;
   color: rgba(255, 87, 87, 1);
@@ -520,4 +521,78 @@ code {
   &::after {
     display: none;
   }
+}
+
+/* CONTACTS STYLES */
+
+.section-contacts {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(0, 24, 38),
+      rgba(0, 37, 49, 0)
+    ),
+    linear-gradient(to top, rgb(0, 24, 38), rgba(0, 37, 49, 0)),
+    linear-gradient(rgba(2, 15, 8, 0.75), rgba(2, 15, 8, 0.75)),
+    url('/assets/images/contacts-section/bg-contacts-mobile-tablet.jpg');
+  background-size: 100% 247px, 100% 247px, cover, cover;
+  background-position: 0 0, 0 100%, center, center;
+  background-repeat: no-repeat;
+}
+
+.section-contacts-desktop {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(0, 24, 38),
+      rgba(0, 37, 49, 0)
+    ),
+    linear-gradient(to top, rgb(0, 24, 38), rgba(0, 37, 49, 0)),
+    linear-gradient(rgba(2, 15, 8, 0.75), rgba(2, 15, 8, 0.75)),
+    url('/assets/images/contacts-section/bg-contacts-desktop.jpg');
+  background-size: 100% 172px, 100% 172px, cover, cover;
+  background-position: 0 0, 0 100%, center, center;
+  background-repeat: no-repeat;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .section-contacts {
+    background-image: linear-gradient(
+        to bottom,
+        rgb(0, 24, 38),
+        rgba(0, 37, 49, 0)
+      ),
+      linear-gradient(to top, rgb(0, 24, 38), rgba(0, 37, 49, 0)),
+      linear-gradient(rgba(2, 15, 8, 0.75), rgba(2, 15, 8, 0.75)),
+      url('/assets/images/contacts-section/bg-contacts-mobile-tablet@2x.jpg');
+    background-size: 100% 287px, 100% 287px, cover, cover;
+    background-position: 0 0, 0 100%, center, center;
+    background-repeat: no-repeat;
+  }
+
+  .section-contacts-desktop {
+    background-image: linear-gradient(
+        to bottom,
+        rgb(0, 24, 38),
+        rgba(0, 37, 49, 0)
+      ),
+      linear-gradient(to top, rgb(0, 24, 38), rgba(0, 37, 49, 0)),
+      linear-gradient(rgba(2, 15, 8, 0.75), rgba(2, 15, 8, 0.75)),
+      url('/assets/images/contacts-section/bg-contacts-desktop@2x.jpg');
+    background-size: 100% 172px, 100% 172px, cover, cover;
+    background-position: 0 0, 0 100%, center, center;
+    background-repeat: no-repeat;
+  }
+}
+
+.error-message-contacts {
+  position: absolute;
+  right: 0;
+  bottom: -100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 87, 87, 1);
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 2.4px;
 }

@@ -19,7 +19,7 @@ export const GalleryImage: React.FC<Props> = ({ picture, isActive }: Props) => {
       <picture>
         <source
           srcSet={`${picture.imageUrl} 1x, ${picture.imageRetinaUrl} 2x`}
-          media="(min-width: 1280px)"
+          media="(min-width: 200px)"
         />
         <img
           // loading={service.id === 1 ? undefined : 'lazy'}

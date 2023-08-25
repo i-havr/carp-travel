@@ -15,14 +15,16 @@ interface Props {
 
 export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
   const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
+  const [swiperWidth, setSwiperWidth] = useState<number | undefined>();
   const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setSwiperWidth(divRef.current?.offsetWidth);
     if (isFirstRender) {
       setIsFirstRender(false);
       return;
     }
-  }, [isFirstRender]);
+  }, [isFirstRender, divRef.current?.offsetWidth]);
 
   return !isFirstRender && isScreenMobile ? (
     <div ref={divRef}>
@@ -33,7 +35,7 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
         slidesPerView={3}
         className="max-h-[1000px]"
         style={{
-          height: (divRef.current?.offsetWidth! / 1.41) * 3 + 48 + 'px',
+          height: (swiperWidth! / 1.41) * 3 + 48 + 'px',
         }}
         speed={1000}
         spaceBetween={24}
@@ -68,7 +70,5 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
         );
       })}
     </Swiper>
-  ) : (
-    <p>some error</p>
-  );
+  ) : null;
 };
