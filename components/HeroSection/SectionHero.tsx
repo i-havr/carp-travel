@@ -8,13 +8,12 @@ import { HeroMotto } from './HeroMotto';
 import { HeroPlacesList } from './HeroPlacesList';
 import { HeroOfferDescription } from './HeroOfferDescription';
 
-import Image from 'next/image';
-import svgLeftMobile from '@/public/assets/icons/1svgFrame-mobile.svg';
-import svgRightMobile from '@/public/assets/icons/2svgFrame-mobile.svg';
-import svgLeftTablet from '@/public/assets/icons/1svgFrame-tablet.svg';
-import svgRightTablet from '@/public/assets/icons/2svgFrame-tablet.svg';
-import svgLeftDesktop from '@/public/assets/icons/1svgFrame-desktop.svg';
-import svgRightDesktop from '@/public/assets/icons/2svgFrame-desktop.svg';
+import SvgLeftMobile from '@/public/assets/icons/1svgFrame-mobile.svg';
+import SvgRightMobile from '@/public/assets/icons/2svgFrame-mobile.svg';
+import SvgLeftTablet from '@/public/assets/icons/1svgFrame-tablet.svg';
+import SvgRightTablet from '@/public/assets/icons/2svgFrame-tablet.svg';
+import SvgLeftDesktop from '@/public/assets/icons/1svgFrame-desktop.svg';
+import SvgRightDesktop from '@/public/assets/icons/2svgFrame-desktop.svg';
 
 import { useWindowWidth } from '@/hooks';
 
@@ -49,25 +48,9 @@ export const SectionHero: React.FC = () => {
             <HeroPlacesList />
             <HeroOfferDescription />
             <LinkButton>
-              <Image
-                src={svgLeftMobile}
-                alt="Left frame"
-                className="absolute top-0 left-0 w-auto h-full"
-                width={0}
-                height={0}
-                aria-hidden="true"
-                priority
-              />
+              <SvgLeftMobile style={{ position: 'absolute', left: 0 }} />
+              <SvgRightMobile style={{ position: 'absolute', right: 0 }} />
               Join now
-              <Image
-                src={svgRightMobile}
-                alt="Right frame"
-                className="absolute top-0 right-0 w-auto h-full"
-                width={0}
-                height={0}
-                aria-hidden="true"
-                priority
-              />
             </LinkButton>
           </>
         ) : (
@@ -81,25 +64,22 @@ export const SectionHero: React.FC = () => {
               <HeroTitle />
               <HeroOfferDescription />
               <LinkButton>
-                <Image
-                  src={isScreenTablet ? svgLeftTablet : svgLeftDesktop}
-                  alt="Left frame"
-                  className="absolute top-0 left-0 w-auto h-full"
-                  width={0}
-                  height={0}
-                  aria-hidden="true"
-                  priority
-                />
+                {isScreenTablet ? (
+                  <>
+                    <SvgLeftTablet style={{ position: 'absolute', left: 0 }} />
+                    <SvgRightTablet
+                      style={{ position: 'absolute', right: 0 }}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <SvgLeftDesktop style={{ position: 'absolute', left: 0 }} />
+                    <SvgRightDesktop
+                      style={{ position: 'absolute', right: 0 }}
+                    />
+                  </>
+                )}
                 Join now
-                <Image
-                  src={isScreenTablet ? svgRightTablet : svgRightDesktop}
-                  alt="Right frame"
-                  className="absolute top-0 right-0 w-auto h-full"
-                  width={0}
-                  height={0}
-                  aria-hidden="true"
-                  priority
-                />
               </LinkButton>
             </div>
           </div>

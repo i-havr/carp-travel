@@ -23,7 +23,7 @@ export const SectionCareer: React.FC = () => {
     }
   }, [isFirstRender]);
 
-  const { isScreenMobile, isScreenTablet, isScreenDesktop } = useWindowWidth();
+  const { isScreenMobile } = useWindowWidth();
 
   return (
     <>
@@ -31,18 +31,10 @@ export const SectionCareer: React.FC = () => {
         <>
           <section
             id="career"
-            className={`${
-              !isFirstRender && isScreenDesktop ? 'section-career-desktop' : ''
-            } 
-        ${
-          !isFirstRender && !isScreenDesktop ? 'section-career' : ''
-        } block w-full`}
+            className={`
+        ${!isFirstRender ? 'section-career' : ''} block w-full`}
           >
-            <div
-              className="container max-w-[480px] ml-auto mr-auto pt-[56px] pr-5 pb-[56px] pl-5 
-            md:max-w-3xl md:pt-16 md:pr-8 md:pb-16 md:pl-8
-            xl:max-w-7xl xl:pt-[104px] xl:pr-6 xl:pb-[104px] xl:pl-6"
-            >
+            <div className="container max-w-[480px] ml-auto mr-auto pt-[56px] pr-5 pb-[56px] pl-5">
               <CareerTitle />
               <div className="mb-9">
                 <div className="w-[180px] flex flex-col ml-auto items-end">
@@ -67,18 +59,10 @@ export const SectionCareer: React.FC = () => {
             </div>
           </section>
           <section
-            className={`${
-              !isFirstRender && isScreenDesktop ? 'section-career-desktop' : ''
-            } 
-        ${
-          !isFirstRender && !isScreenDesktop ? 'section-career' : ''
-        } block w-full`}
+            className={`
+        ${!isFirstRender ? 'section-career' : ''} block w-full`}
           >
-            <div
-              className="container max-w-[480px] ml-auto mr-auto pt-[56px] pr-5 pb-[56px] pl-5 
-            md:max-w-3xl md:pt-16 md:pr-8 md:pb-16 md:pl-8
-            xl:max-w-7xl xl:pt-[104px] xl:pr-6 xl:pb-[104px] xl:pl-6"
-            >
+            <div className="container max-w-[480px] ml-auto mr-auto pt-[56px] pr-5 pb-[56px] pl-5">
               <div className="flex flex-col gap-6">
                 <div className="flex justify-end">
                   <CareerMotto />
@@ -88,10 +72,52 @@ export const SectionCareer: React.FC = () => {
             </div>
           </section>
         </>
-      ) : isScreenTablet ? (
-        <div></div>
       ) : (
-        <div></div>
+        <section
+          id="career"
+          className={`
+        ${!isFirstRender ? 'section-career-desktop' : ''} block w-full`}
+        >
+          <div
+            className="container ml-auto mr-auto max-w-3xl pt-16 pr-8 pb-16 pl-8
+            xl:max-w-7xl xl:pt-[104px] xl:pr-6 xl:pb-[104px] xl:pl-6"
+          >
+            <div className="grid-career-tablet">
+              <div className="grid-career-item-1">
+                <CareerTitle />
+              </div>
+
+              <div className="grid-career-item-2">
+                <CareerOfferDescription />
+              </div>
+
+              <div className="grid-career-item-3 flex flex-col">
+                <CareerQuestionTitle />
+                <ul className="flex flex-col gap-6">
+                  {careerFeatures.map(feature => {
+                    return (
+                      <li key={feature.id}>
+                        <div className="flex flex-col gap-2 xl:flex-row xl:gap-6">
+                          <CareerFeatureTitle title={feature.title} />
+                          <CareerFeatureDescription
+                            description={feature.description}
+                          />
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              <div className="grid-career-item-4">
+                <CareerMotto />
+              </div>
+              <div className="grid-career-item-5">
+                <CareerForm />
+              </div>
+            </div>
+          </div>
+        </section>
       )}
     </>
   );

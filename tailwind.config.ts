@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontFamily: { inter: ['Inter', 'sans-serif'] },
+      fontFamily: { inter: ['var(--font-inter)'] },
       backgroundColor: { input: 'rgba(255, 255, 255, 0.1)' },
       colors: { 'error-input': 'rgba(255, 87, 87, 1)' },
     },
