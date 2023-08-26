@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const CareerMotto = () => {
+export const CareerMotto: React.FC = () => {
   return (
     <p
       className="w-[179px] font-extralight text-sm leading-[1.43]

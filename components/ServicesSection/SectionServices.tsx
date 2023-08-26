@@ -21,8 +21,8 @@ export const SectionServices: React.FC = () => {
     ''
   );
   const [swiper, setSwiper] = useState<SwiperCore>();
-  const { isScreenMobile, isScreenTablet, isScreenDesktop } = useWindowWidth();
 
+  const { isScreenMobile, isScreenTablet, isScreenDesktop } = useWindowWidth();
   const currentSlide = services.find(slide => slide.id === activeSlide);
 
   useEffect(() => {
@@ -31,11 +31,11 @@ export const SectionServices: React.FC = () => {
     }
   }, [currentSlide, isScreenMobile, isScreenTablet]);
 
-  const handleSlideChange = (swiper: SwiperCore) => {
+  const handleSlideChange = (swiper: SwiperCore): void => {
     setActiveSlide(swiper.activeIndex + 1);
   };
 
-  const handleGoToSlideByClick = (slideId: number) => {
+  const handleGoToSlideByClick = (slideId: number): void => {
     if (swiper) {
       swiper.slideTo(slideId - 1);
     }

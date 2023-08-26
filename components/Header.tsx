@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigation } from './Navigation';
 import Image from 'next/image';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <header className="w-full flex justify-between items-center mb-9 md:mb-16 xl:mb-[72px]">
       <div className="w-full flex justify-between items-center">

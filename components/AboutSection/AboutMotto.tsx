@@ -1,8 +1,6 @@
 import React from 'react';
-import { useWindowWidth } from '@/hooks';
 
-export const AboutMotto = () => {
-  const { isScreenDesktop } = useWindowWidth();
+export const AboutMotto: React.FC = () => {
   return (
     <p
       className="flex flex-col items-end text-start mb-10 ml-auto font-normal text-sm leading-[1.43] uppercase md:items-start md:mb-0 md:ml-0 md:text-base md:leading-5

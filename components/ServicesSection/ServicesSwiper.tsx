@@ -35,7 +35,6 @@ export const ServicesSwiper: React.FC<Props> = ({
   return !isFirstRender ? (
     <Swiper
       ref={swiperRef}
-      lazyPreloadPrevNext={1}
       slidesPerView={1}
       allowTouchMove={false}
       onSlideChange={handleSlideChange}
@@ -48,7 +47,9 @@ export const ServicesSwiper: React.FC<Props> = ({
       {services.map(service => {
         return (
           <SwiperSlide key={service.id} className="overflow-hidden">
-            <ServicesImage service={service} />
+            {({ isActive }) => (
+              <ServicesImage service={service} isActive={isActive} />
+            )}
           </SwiperSlide>
         );
       })}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const HeroTitle = () => {
+export const HeroTitle: React.FC = () => {
   return (
     <h1 className="flex flex-col justify-center items-end mb-6 text-left font-inter font-thin text-[37px] uppercase tracking-[0.54px] overflow-hidden md:items-start md:mb-[56px] md:text-[67px] md:tracking-[8.71px] xl:mb-[181px] xl:text-[98px] xl:tracking-[3px]">
       <span className="text-left leading-none md:text-right md:leading-[1.21] xl:leading-[1.21]">

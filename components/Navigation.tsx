@@ -8,7 +8,7 @@ export const Navigation: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { isScreenMobile } = useWindowWidth();
 
-  const handleToggleMenu = () => {
+  const handleToggleMenu: () => void = () => {
     setIsModalOpen(!isModalOpen);
     document.body.classList.toggle('no-scroll');
   };

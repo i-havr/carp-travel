@@ -26,10 +26,6 @@ export const NavMenu: React.FC<Props> = ({ closeMenu }: Props) => {
           <li
             key={nav.id}
             className="text-lg leading-[1.21] tracking-[1.4px] md:text-sm"
-            //   className={`${
-            //     active === nav.title ? "text-white" : "text-secondary"
-            //   } hover:text-white text-[18px] font-medium cursor-pointer`}
-            //   onClick={() => setActive(nav.title)}
           >
             <Link
               className="cursor-pointer"

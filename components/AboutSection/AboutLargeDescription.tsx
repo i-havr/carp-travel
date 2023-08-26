@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AboutLargeDescription = () => {
+export const AboutLargeDescription: React.FC = () => {
   return (
     <div className="w-[180px] font-extralight text-sm text-start leading-[1.43] md:w-[222px] md:text-base xl:w-[292px] xl:text-lg">
       <p

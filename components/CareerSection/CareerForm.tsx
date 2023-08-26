@@ -17,7 +17,7 @@ type Inputs = {
   agree: boolean;
 };
 
-export const CareerForm = () => {
+export const CareerForm: React.FC = () => {
   const [formattedPhone, setFormattedPhone] = useState<string | undefined>('');
 
   const {
@@ -32,11 +32,14 @@ export const CareerForm = () => {
 
   const onSubmit: SubmitHandler<Inputs> = data => {
     console.log('You have just sent data => ', data);
+
     setFormattedPhone('');
+
     toast.success('You have just sent data', {
       duration: 4000,
       className: 'font-medium',
     });
+
     reset();
   };
 
@@ -46,6 +49,7 @@ export const CareerForm = () => {
     const value = event.target.value;
 
     const formattedValue = formatPhone(value);
+
     setFormattedPhone(formattedValue);
   };
 

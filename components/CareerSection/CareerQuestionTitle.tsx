@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const CareerQuestionTitle = () => {
+export const CareerQuestionTitle: React.FC = () => {
   return (
     <h3
       className="w-full font-extralight text-3xl md:leading-[1.21] uppercase

@@ -48,7 +48,9 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
       <Swiper
         direction={'vertical'}
         loop
-        lazyPreloadPrevNext={1}
+        initialSlide={1}
+        lazyPreloaderClass="swiper-lazy-preloader"
+        centeredSlides={true}
         slidesPerView={3}
         className="max-h-[1000px]"
         style={{
@@ -63,7 +65,14 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
               key={picture.id}
               className="overflow-hidden cursor-grab active:cursor-grabbing"
             >
-              <GalleryImage picture={picture} />
+              {({ isActive, isNext, isPrev }) => (
+                <GalleryImage
+                  isActive={isActive}
+                  picture={picture}
+                  isPrev={isPrev}
+                  isNext={isNext}
+                />
+              )}
             </SwiperSlide>
           );
         })}
@@ -86,8 +95,13 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
             key={picture.id}
             className="cursor-grab active:cursor-grabbing"
           >
-            {({ isActive }) => (
-              <GalleryImage picture={picture} isActive={isActive} />
+            {({ isActive, isNext, isPrev }) => (
+              <GalleryImage
+                picture={picture}
+                isActive={isActive}
+                isPrev={isPrev}
+                isNext={isNext}
+              />
             )}
           </SwiperSlide>
         );

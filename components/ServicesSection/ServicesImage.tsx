@@ -3,9 +3,13 @@ import { Service } from '@/helpers';
 
 interface Props {
   service: Service;
+  isActive?: boolean;
 }
 
-export const ServicesImage: React.FC<Props> = ({ service }: Props) => {
+export const ServicesImage: React.FC<Props> = ({
+  service,
+  isActive,
+}: Props) => {
   return (
     <div className="overflow-hidden">
       <picture>
@@ -18,7 +22,7 @@ export const ServicesImage: React.FC<Props> = ({ service }: Props) => {
           media="(max-width: 1280px)"
         />
         <img
-          // loading={service.id === 1 ? undefined : 'lazy'}
+          loading={isActive ? 'eager' : 'lazy'}
           className="scale-[1.01]"
           data-src={`${service.imageMobileTabletUrl}`}
           alt={service.name}

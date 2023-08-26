@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AboutTitle = () => {
+export const AboutTitle: React.FC = () => {
   return (
     <h2
       className="flex mb-2 font-thin text-[40px] uppercase leading-[1.4] tracking-[-1.6px] 

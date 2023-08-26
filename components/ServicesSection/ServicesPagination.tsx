@@ -6,7 +6,10 @@ interface Props {
   total: number;
 }
 
-export const ServicesPagination = ({ activeSlide, total }: Props) => {
+export const ServicesPagination: React.FC<Props> = ({
+  activeSlide,
+  total,
+}: Props) => {
   return (
     <span
       className="flex justify-end mb-4 font-thin text-[43px] leading-[1.21]

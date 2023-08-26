@@ -16,7 +16,7 @@ type Inputs = {
   agree: boolean;
 };
 
-export const ContactsForm = () => {
+export const ContactsForm: React.FC = () => {
   const {
     register,
     handleSubmit,
@@ -31,7 +31,9 @@ export const ContactsForm = () => {
       duration: 4000,
       className: 'font-medium',
     });
+
     console.log('You have just sent data => ', data);
+
     reset();
   };
 

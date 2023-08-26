@@ -21,8 +21,6 @@
 
 body {
   margin: 0;
-
-  /* font-family: Inter, sans-serif; */
   color: var(--main-textcolor);
   background-color: var(--bg-color);
 

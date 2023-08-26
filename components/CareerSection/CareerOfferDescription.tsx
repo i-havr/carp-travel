@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const CareerOfferDescription = () => {
+export const CareerOfferDescription: React.FC = () => {
   return (
     <p
       className="mb-9 font-extralight text-sm leading-[1.43]

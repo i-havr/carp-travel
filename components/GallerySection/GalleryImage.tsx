@@ -4,9 +4,16 @@ import { Picture } from '@/helpers';
 interface Props {
   picture: Picture;
   isActive?: boolean;
+  isPrev?: boolean;
+  isNext?: boolean;
 }
 
-export const GalleryImage: React.FC<Props> = ({ picture, isActive }: Props) => {
+export const GalleryImage: React.FC<Props> = ({
+  picture,
+  isActive,
+  isPrev,
+  isNext,
+}: Props) => {
   return (
     <div
       className={`animated-image-wrapper overflow-hidden md:absolute md:top-1/2 md:-translate-y-1/2 ${
@@ -22,9 +29,9 @@ export const GalleryImage: React.FC<Props> = ({ picture, isActive }: Props) => {
           media="(min-width: 200px)"
         />
         <img
-          // loading={service.id === 1 ? undefined : 'lazy'}
+          loading={isActive || isPrev || isNext ? 'eager' : 'lazy'}
           className="md:pointer-events-none scale-[1.01]"
-          src={`${picture.imageUrl}`}
+          data-src={`${picture.imageUrl}`}
           alt={picture.name}
         />
       </picture>

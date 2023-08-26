@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ContactsPhone = () => {
+export const ContactsPhone: React.FC = () => {
   return (
     <div
       className="flex justify-end items-baseline gap-5 mb-6 

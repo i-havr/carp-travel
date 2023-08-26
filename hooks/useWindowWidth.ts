@@ -16,7 +16,7 @@ export const useWindowWidth = () => {
       setWidth(window.innerWidth);
     }
 
-    const handleResize = (event: Event) => {
+    const handleResize = (event: Event): void => {
       if (event.target instanceof Window) {
         setWidth(event.target.innerWidth);
       }
