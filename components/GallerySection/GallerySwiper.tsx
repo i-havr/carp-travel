@@ -24,6 +24,23 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
       setIsFirstRender(false);
       return;
     }
+
+    const prevSwiperButton = document.querySelector('.swiper-button-prev');
+    const nextSwiperButton = document.querySelector('.swiper-button-next');
+
+    if (prevSwiperButton) {
+      prevSwiperButton.setAttribute(
+        'aria-label',
+        'Click to show the previous image'
+      );
+    }
+
+    if (nextSwiperButton) {
+      nextSwiperButton.setAttribute(
+        'aria-label',
+        'Click to show the next image'
+      );
+    }
   }, [isFirstRender, divRef.current?.offsetWidth]);
 
   return !isFirstRender && isScreenMobile ? (
@@ -42,7 +59,10 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
       >
         {pictures.map(picture => {
           return (
-            <SwiperSlide key={picture.id} className="overflow-hidden">
+            <SwiperSlide
+              key={picture.id}
+              className="overflow-hidden cursor-grab active:cursor-grabbing"
+            >
               <GalleryImage picture={picture} />
             </SwiperSlide>
           );
@@ -62,7 +82,10 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
     >
       {pictures.map(picture => {
         return (
-          <SwiperSlide key={picture.id}>
+          <SwiperSlide
+            key={picture.id}
+            className="cursor-grab active:cursor-grabbing"
+          >
             {({ isActive }) => (
               <GalleryImage picture={picture} isActive={isActive} />
             )}

@@ -48,8 +48,14 @@ export const SectionHero: React.FC = () => {
             <HeroPlacesList />
             <HeroOfferDescription />
             <LinkButton>
-              <SvgLeftMobile style={{ position: 'absolute', left: 0 }} />
-              <SvgRightMobile style={{ position: 'absolute', right: 0 }} />
+              <SvgLeftMobile
+                style={{ position: 'absolute', left: 0 }}
+                aria-hidden
+              />
+              <SvgRightMobile
+                style={{ position: 'absolute', right: 0 }}
+                aria-hidden
+              />
               Join now
             </LinkButton>
           </>
@@ -66,16 +72,24 @@ export const SectionHero: React.FC = () => {
               <LinkButton>
                 {isScreenTablet ? (
                   <>
-                    <SvgLeftTablet style={{ position: 'absolute', left: 0 }} />
+                    <SvgLeftTablet
+                      style={{ position: 'absolute', left: 0 }}
+                      aria-hidden
+                    />
                     <SvgRightTablet
                       style={{ position: 'absolute', right: 0 }}
+                      aria-hidden
                     />
                   </>
                 ) : (
                   <>
-                    <SvgLeftDesktop style={{ position: 'absolute', left: 0 }} />
+                    <SvgLeftDesktop
+                      style={{ position: 'absolute', left: 0 }}
+                      aria-hidden
+                    />
                     <SvgRightDesktop
                       style={{ position: 'absolute', right: 0 }}
+                      aria-hidden
                     />
                   </>
                 )}

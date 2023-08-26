@@ -3,6 +3,7 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
+import toast from 'react-hot-toast';
 import { useWindowWidth } from '@/hooks';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
@@ -26,6 +27,10 @@ export const ContactsForm = () => {
   const { isScreenMobile } = useWindowWidth();
 
   const onSubmit: SubmitHandler<Inputs> = data => {
+    toast.success('You have just sent data', {
+      duration: 4000,
+      className: 'font-medium',
+    });
     console.log('You have just sent data => ', data);
     reset();
   };
@@ -61,7 +66,7 @@ export const ContactsForm = () => {
 
               {errors.fullName && (
                 <span className="error-message-contacts">
-                  <SvgRedCross style={{ height: '10px' }} />
+                  <SvgRedCross style={{ height: '10px' }} aria-hidden />
                   Incorrect name
                 </span>
               )}
@@ -92,7 +97,7 @@ export const ContactsForm = () => {
 
               {errors.email && (
                 <span className="error-message-contacts">
-                  <SvgRedCross style={{ height: '10px' }} />
+                  <SvgRedCross style={{ height: '10px' }} aria-hidden />
                   Incorrect E-mail
                 </span>
               )}
@@ -121,6 +126,7 @@ export const ContactsForm = () => {
                     style={{
                       height: '10px',
                     }}
+                    aria-hidden
                   />
                   Incorrect message
                 </span>
@@ -141,7 +147,7 @@ export const ContactsForm = () => {
           autoComplete="off"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="flex flex-col gap-4 xl:flex-row xl:w-full justify-between">
+          <div className="flex flex-col gap-4 xl:flex-row xl:w-full xl:justify-between">
             {/* FULL NAME */}
             <label
               className={`flex flex-col ${
@@ -166,7 +172,7 @@ export const ContactsForm = () => {
 
                 {errors.fullName && (
                   <span className="error-message-contacts">
-                    <SvgRedCross style={{ height: '10px' }} />
+                    <SvgRedCross style={{ height: '10px' }} aria-hidden />
                     Incorrect name
                   </span>
                 )}
@@ -199,7 +205,7 @@ export const ContactsForm = () => {
 
                 {errors.email && (
                   <span className="error-message-contacts">
-                    <SvgRedCross style={{ height: '10px' }} />
+                    <SvgRedCross style={{ height: '10px' }} aria-hidden />
                     Incorrect E-mail
                   </span>
                 )}
@@ -226,7 +232,7 @@ export const ContactsForm = () => {
 
                 {errors.message && (
                   <span className="absolute right-0 top-full flex items-center gap-[6px] font-extralight text-xs leading-[2] tracking-[2.4px]">
-                    <SvgRedCross style={{ height: '10px' }} />
+                    <SvgRedCross style={{ height: '10px' }} aria-hidden />
                     Incorrect message
                   </span>
                 )}

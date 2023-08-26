@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 
+import toast from 'react-hot-toast';
 import { formatPhone } from '@/helpers';
 import { useWindowWidth } from '@/hooks';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
@@ -32,6 +33,10 @@ export const CareerForm = () => {
   const onSubmit: SubmitHandler<Inputs> = data => {
     console.log('You have just sent data => ', data);
     setFormattedPhone('');
+    toast.success('You have just sent data', {
+      duration: 4000,
+      className: 'font-medium',
+    });
     reset();
   };
 
@@ -75,7 +80,7 @@ export const CareerForm = () => {
 
               {errors.fullName && (
                 <span className="error-message">
-                  <SvgRedCross style={{ height: '10px' }} />
+                  <SvgRedCross style={{ height: '10px' }} aria-hidden />
                   Incorrect name
                 </span>
               )}
@@ -106,7 +111,7 @@ export const CareerForm = () => {
 
               {errors.email && (
                 <span className="error-message">
-                  <SvgRedCross style={{ height: '10px' }} />
+                  <SvgRedCross style={{ height: '10px' }} aria-hidden />
                   Incorrect E-mail
                 </span>
               )}
@@ -136,7 +141,7 @@ export const CareerForm = () => {
 
               {errors.position && (
                 <span className="error-message">
-                  <SvgRedCross style={{ height: '10px' }} />
+                  <SvgRedCross style={{ height: '10px' }} aria-hidden />
                   Incorrect position
                 </span>
               )}
@@ -179,7 +184,7 @@ export const CareerForm = () => {
               </span>
               {errors.phone && (
                 <span className="error-message">
-                  <SvgRedCross style={{ height: '10px' }} />
+                  <SvgRedCross style={{ height: '10px' }} aria-hidden />
                   Incorrect phone
                 </span>
               )}
@@ -204,7 +209,7 @@ export const CareerForm = () => {
 
               {errors.message && (
                 <span className="absolute right-0 top-full flex items-center gap-[6px] font-extralight text-xs leading-[2] tracking-[2.4px]">
-                  <SvgRedCross style={{ height: '10px' }} />
+                  <SvgRedCross style={{ height: '10px' }} aria-hidden />
                   Incorrect message
                 </span>
               )}
@@ -212,7 +217,7 @@ export const CareerForm = () => {
           </label>
 
           {/* AGREEMENT CHECKBOX */}
-          <label className="relative flex items-start pl-[30px] font-extralight text-xs leading-[1.83]">
+          <label className="relative flex items-start pl-[30px] font-extralight text-xs leading-[1.83] cursor-pointer">
             <input
               {...register('agree', { required: true })}
               className="hidden-checkbox"
@@ -226,13 +231,14 @@ export const CareerForm = () => {
               <span
                 className={`absolute right-0 top-full flex items-center gap-[6px] font-extralight text-xs tracking-[2.4px] ${
                   errors.agree ? 'text-error-input' : ''
-                }`}
+                } cursor-default`}
               >
-                <SvgRedCross style={{ height: '10px' }} />
+                <SvgRedCross style={{ height: '10px' }} aria-hidden />
                 Must be accepted
               </span>
             )}
           </label>
+
           <button
             className="w-[82px] ml-auto font-medium text-3xl leading-[1.21] uppercase"
             type="submit"
@@ -270,7 +276,7 @@ export const CareerForm = () => {
 
                 {errors.fullName && (
                   <span className="error-message">
-                    <SvgRedCross style={{ height: '10px' }} />
+                    <SvgRedCross style={{ height: '10px' }} aria-hidden />
                     Incorrect name
                   </span>
                 )}
@@ -302,7 +308,7 @@ export const CareerForm = () => {
 
                 {errors.email && (
                   <span className="error-message">
-                    <SvgRedCross style={{ height: '10px' }} />
+                    <SvgRedCross style={{ height: '10px' }} aria-hidden />
                     Incorrect E-mail
                   </span>
                 )}
@@ -332,7 +338,7 @@ export const CareerForm = () => {
 
                 {errors.position && (
                   <span className="error-message">
-                    <SvgRedCross style={{ height: '10px' }} />
+                    <SvgRedCross style={{ height: '10px' }} aria-hidden />
                     Incorrect position
                   </span>
                 )}
@@ -375,7 +381,7 @@ export const CareerForm = () => {
                 </span>
                 {errors.phone && (
                   <span className="error-message">
-                    <SvgRedCross style={{ height: '10px' }} />
+                    <SvgRedCross style={{ height: '10px' }} aria-hidden />
                     Incorrect phone
                   </span>
                 )}
@@ -383,7 +389,7 @@ export const CareerForm = () => {
             </label>
 
             {/* AGREEMENT CHECKBOX */}
-            <label className="relative flex items-start pl-[30px] font-extralight text-xs leading-[1.83] xl:mt-3">
+            <label className="relative flex items-start pl-[30px] font-extralight text-xs leading-[1.83] xl:mt-3 cursor-pointer">
               <input
                 {...register('agree', { required: true })}
                 className="hidden-checkbox"
@@ -397,9 +403,9 @@ export const CareerForm = () => {
                 <span
                   className={`absolute right-0 top-full flex items-center gap-[6px] font-extralight text-xs tracking-[2.4px] ${
                     errors.agree ? 'text-error-input' : ''
-                  }`}
+                  } cursor-default`}
                 >
-                  <SvgRedCross style={{ height: '10px' }} />
+                  <SvgRedCross style={{ height: '10px' }} aria-hidden />
                   Must be accepted
                 </span>
               )}
@@ -425,7 +431,7 @@ export const CareerForm = () => {
 
                 {errors.message && (
                   <span className="absolute right-0 top-full md:top-[98%] flex items-center gap-[6px] font-extralight text-xs leading-[2] tracking-[2.4px]">
-                    <SvgRedCross style={{ height: '10px' }} />
+                    <SvgRedCross style={{ height: '10px' }} aria-hidden />
                     Incorrect message
                   </span>
                 )}
