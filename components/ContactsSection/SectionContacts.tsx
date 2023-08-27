@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import { ContactsTitle } from './ContactsTitle';
 import { ContactsPhone } from './ContactsPhone';
-import { ContactsForm } from './ContactsForm';
+import { ContactsForm } from './ContactsForm/ContactsForm';
 import { ContactsEmail } from './ContactsEmail';
 import { ContactsSocialNetworks } from './ContactsSocialNetworks';
 
