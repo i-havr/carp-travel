@@ -15,7 +15,6 @@ import { ContactsFormButton } from './ContactsFormButton';
 
 import toast from 'react-hot-toast';
 import { useWindowWidth } from '@/hooks';
-import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
 type Inputs = {
   fullName: string;

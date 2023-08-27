@@ -6,7 +6,11 @@ export const HeroTitle: React.FC = () => {
       <span className="text-left leading-none md:text-right md:leading-[1.21] xl:leading-[1.21]">
         <span className="font-medium">7</span>Days
       </span>
-      <span className="inline-block w-[118px] mr-[-4px] text-justify font-light text-xs leading-[1.21] tracking-[9.18px] md:w-[221px] md:ml-auto md:mr-auto md:text-sm md:tracking-[26px] md:leading-[0.6] xl:w-[310px] xl:mt-[-12px] xl:mr-[-4px] xl:text-base xl:leading-[1.5] xl:tracking-[36.5px]">
+      <span
+        className="inline-block w-[118px] mr-[-4px] text-justify font-light text-xs leading-[1.21] tracking-[9.18px] 
+      md:w-[221px] md:mt-[-12px] md:ml-auto md:mr-auto md:text-sm md:tracking-[26px] md:leading-[1.21]
+      xl:w-[310px] xl:mr-[-4px] xl:text-base xl:leading-[1.5] xl:tracking-[36.5px]"
+      >
         Journey
       </span>
     </h1>
