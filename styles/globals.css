@@ -60,6 +60,11 @@ code {
     monospace;
 }
 
+.outline-without {
+  outline: none;
+  outline-offset: 0;
+}
+
 /* HERO STYLES */
 
 .section-hero {

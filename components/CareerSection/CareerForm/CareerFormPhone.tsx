@@ -29,45 +29,45 @@ export const CareerFormPhone: React.FC<InputPhoneProps> = ({
 
   return (
     <label
-      className={`relative flex flex-col ${
-        errors.phone ? 'text-error-input' : ''
-      }`}
+      className={`flex flex-col ${errors.phone ? 'text-error-input' : ''}`}
     >
       <span className="font-extralight text-xs leading-[2] tracking-[2.4px]">
         Phone
       </span>
 
-      <span className="absolute top-1/2 translate-y-[2px] left-2 text-[13px] xl:text-xl xl:-translate-y-[2px]">
-        {'+ 38'}
-      </span>
+      <div className="relative">
+        <Controller
+          name="phone"
+          defaultValue=""
+          shouldUnregister
+          rules={{
+            onChange: handlePhoneChange,
+            required: true,
+            pattern: /^\(\d{3}\) \d{2} \d{2} \d{3}$/,
+          }}
+          control={control}
+          render={({ field }) => (
+            <input
+              {...field}
+              className="w-full flex items-center pl-10 pr-2 text-[13px] outline-without leading-[1.85] bg-input xl:pl-14 xl:text-xl"
+              type="text"
+              value={formattedPhone}
+              placeholder="(097) 12 34 567"
+            />
+          )}
+        />
 
-      {errors.phone && (
-        <span className="absolute right-0 top-full flex justify-center items-center gap-[6px] font-extralight text-xs leading-[2] tracking-[2.4px]">
-          <SvgRedCross className="h-[10px]" aria-hidden />
-          Incorrect phone
-        </span>
-      )}
-
-      <Controller
-        name="phone"
-        defaultValue=""
-        shouldUnregister
-        rules={{
-          onChange: handlePhoneChange,
-          required: true,
-          pattern: /^\(\d{3}\) \d{2} \d{2} \d{3}$/,
-        }}
-        control={control}
-        render={({ field }) => (
-          <input
-            {...field}
-            className="relative flex items-center pl-10 pr-2 text-[13px] outline-none leading-[1.85] bg-input xl:pl-14 xl:text-xl"
-            type="text"
-            value={formattedPhone}
-            placeholder="(097) 12 34 567"
-          />
+        {errors.phone && (
+          <span className="absolute right-0 top-full flex justify-center items-center gap-[6px] font-extralight text-xs leading-[2] tracking-[2.4px]">
+            <SvgRedCross className="h-[10px]" aria-hidden />
+            Incorrect phone
+          </span>
         )}
-      />
+
+        <span className="absolute top-1/2 -translate-y-1/2 left-2 text-[13px] xl:text-xl">
+          {'+ 38'}
+        </span>
+      </div>
     </label>
   );
 };

@@ -11,7 +11,7 @@ export const CareerFormAgreementCheckbox: React.FC<InputProps> = ({
     <label className="relative flex items-start pl-[30px] font-extralight text-xs leading-[1.83] cursor-pointer xl:mt-3">
       <input
         {...register!('agree', { required: true })}
-        className="hidden-checkbox"
+        className="hidden-checkbox outline-without"
         type="checkbox"
       />
       <span className="custom-checkbox flex justify-center items-center p-[3px] bg-black">
