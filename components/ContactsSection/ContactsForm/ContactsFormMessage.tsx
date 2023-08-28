@@ -9,13 +9,21 @@ export const ContactsFormMessage: React.FC<InputProps> = ({
 }) => {
   return (
     <label
-      className={`flex flex-col ${
+      className={`relative flex flex-col ${
         errors.message ? 'text-error-input' : ''
       } md:mb-[16px] xl:mb-6`}
     >
       <span className="font-extralight text-xs leading-[2] tracking-[2.4px]">
         Message
       </span>
+
+      {errors.message && (
+        <span className="absolute right-0 top-full flex justify-center items-center gap-[6px] font-extralight text-xs leading-[2] tracking-[2.4px]">
+          <SvgRedCross className="h-[10px]" aria-hidden />
+          Incorrect message
+        </span>
+      )}
+
       <div className="relative flex flex-col">
         <textarea
           {...register!('message', { required: true, minLength: 5 })}
@@ -23,17 +31,12 @@ export const ContactsFormMessage: React.FC<InputProps> = ({
           rows={8}
         />
 
-        {errors.message && (
+        {/* {errors.message && (
           <span className="absolute right-0 top-full flex justify-center items-center gap-[6px] font-extralight text-xs leading-[2] tracking-[2.4px]">
-            <SvgRedCross
-              style={{
-                height: '10px',
-              }}
-              aria-hidden
-            />
+            <SvgRedCross className="h-[10px]" aria-hidden />
             Incorrect message
           </span>
-        )}
+        )} */}
       </div>
     </label>
   );
