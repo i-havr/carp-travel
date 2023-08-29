@@ -33,9 +33,9 @@ export const SectionAbout: React.FC = () => {
           ${isScreenTablet || isScreenDesktop ? 'section-about-desktop' : ''}
           ${
             width! < 480 && !isFirstRender ? 'section-about' : ''
-          } block w-full`}
+          } block w-full pt-[55px] pb-[54px] md:pt-16 md:pb-16 xl:pt-[104px] xl:pb-[104px] `}
     >
-      <div className="container max-w-[480px] ml-auto mr-auto pt-[55px] pr-5 pb-[54px] pl-5 md:max-w-3xl md:pt-16 md:pr-8 md:pb-16 md:pl-8 xl:max-w-7xl xl:pt-[104px] xl:pr-6 xl:pb-[104px] xl:pl-6">
+      <div className="container max-w-[480px] ml-auto mr-auto pr-5 pl-5 md:max-w-3xl md:pr-8 md:pl-8 xl:max-w-7xl xl:pr-6 xl:pl-6">
         {isScreenMobile ? (
           <>
             <AboutTitle />

@@ -35,7 +35,7 @@ export const CareerFormPhone: React.FC<InputPhoneProps> = ({
         Phone
       </span>
 
-      <div className="relative">
+      <div className="relative flex flex-col">
         <Controller
           name="phone"
           defaultValue=""
@@ -49,7 +49,7 @@ export const CareerFormPhone: React.FC<InputPhoneProps> = ({
           render={({ field }) => (
             <input
               {...field}
-              className="w-full flex items-center pl-10 pr-2 text-[13px] outline-without leading-[1.85] bg-input xl:pl-14 xl:text-xl"
+              className="flex items-center pl-10 pr-2 text-[13px] outline-without leading-[1.85] bg-input xl:pl-14 xl:text-xl"
               type="text"
               value={formattedPhone}
               placeholder="(097) 12 34 567"

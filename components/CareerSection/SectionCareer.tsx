@@ -32,9 +32,11 @@ export const SectionCareer: React.FC = () => {
           <section
             id="career"
             className={`
-        ${!isFirstRender ? 'section-career' : ''} block w-full`}
+        ${
+          !isFirstRender ? 'section-career' : ''
+        } block w-full pt-[56px] pb-[56px]`}
           >
-            <div className="container max-w-[480px] ml-auto mr-auto pt-[56px] pr-5 pb-[56px] pl-5">
+            <div className="container max-w-[480px] ml-auto mr-auto pr-5 pl-5">
               <CareerTitle />
               <div className="mb-9">
                 <div className="w-[180px] flex flex-col ml-auto items-end">
@@ -60,9 +62,11 @@ export const SectionCareer: React.FC = () => {
           </section>
           <section
             className={`
-        ${!isFirstRender ? 'section-career' : ''} block w-full`}
+        ${
+          !isFirstRender ? 'section-career' : ''
+        } block w-full pt-[56px] pb-[56px]`}
           >
-            <div className="container max-w-[480px] ml-auto mr-auto pt-[56px] pr-5 pb-[56px] pl-5">
+            <div className="container max-w-[480px] ml-auto mr-auto pr-5 pl-5">
               <div className="flex flex-col gap-6">
                 <div className="flex justify-end">
                   <CareerMotto />
@@ -76,11 +80,13 @@ export const SectionCareer: React.FC = () => {
         <section
           id="career"
           className={`
-        ${!isFirstRender ? 'section-career-desktop' : ''} block w-full`}
+        ${
+          !isFirstRender ? 'section-career-desktop' : ''
+        } block w-full pt-16 pb-16 xl:pt-[104px] xl:pb-[104px]`}
         >
           <div
-            className="container ml-auto mr-auto max-w-3xl pt-16 pr-8 pb-16 pl-8
-            xl:max-w-7xl xl:pt-[104px] xl:pr-6 xl:pb-[104px] xl:pl-6"
+            className="container ml-auto mr-auto max-w-3xl pr-8 pl-8
+            xl:max-w-7xl xl:pr-6 xl:pl-6"
           >
             <div className="grid-career-tablet">
               <div className="grid-career-item-1">

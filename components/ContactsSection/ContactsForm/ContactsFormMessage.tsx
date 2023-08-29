@@ -27,7 +27,7 @@ export const ContactsFormMessage: React.FC<InputProps> = ({
       <div className="relative flex flex-col">
         <textarea
           {...register!('message', { required: true, minLength: 5 })}
-          className="flex items-center h-[196px] pl-2 pr-2 text-[13px] resize-none outline-none leading-[1.85] bg-input md:h-[215px] xl:text-xl xl:h-[174px] xl:leading-[1.2]"
+          className="flex items-center h-[196px] pl-2 pr-2 text-[13px] resize-none outline-without leading-[1.85] bg-input md:h-[215px] xl:text-xl xl:h-[174px] xl:leading-[1.2]"
           rows={8}
         />
 

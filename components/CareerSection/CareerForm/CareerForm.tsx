@@ -60,16 +60,6 @@ export const CareerForm: React.FC = () => {
     reset();
   };
 
-  const handlePhoneChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    const value = event.target.value;
-
-    const formattedValue = formatPhone(value);
-
-    setFormattedPhone(formattedValue);
-  };
-
   return (
     <>
       {isScreenMobile ? (

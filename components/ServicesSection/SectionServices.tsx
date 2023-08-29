@@ -46,9 +46,9 @@ export const SectionServices: React.FC = () => {
     <section
       id="services"
       style={setSectionBgStyle(currentSectionBg).services}
-      className="block w-full"
+      className="block w-full pt-[54px] pb-14 md:pt-16 md:pb-16 xl:pt-[104px] xl:pb-[104px]"
     >
-      <div className="container max-w-[480px] ml-auto mr-auto pt-[54px] pr-5 pb-14 pl-5 md:flex md:justify-between md:max-w-3xl md:pt-16 md:pr-8 md:pb-16 md:pl-8 xl:max-w-7xl xl:pt-[104px] xl:pr-6 xl:pb-[104px] xl:pl-6">
+      <div className="container max-w-[480px] ml-auto mr-auto pr-5 pl-5 md:flex md:justify-between md:max-w-3xl md:pr-8 md:pl-8 xl:max-w-7xl xl:pr-6 xl:pl-6">
         {isScreenMobile ? (
           <>
             <ServicesTitle />

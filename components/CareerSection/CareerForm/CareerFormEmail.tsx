@@ -12,13 +12,13 @@ export const CareerFormEmail: React.FC<InputProps> = ({ register, errors }) => {
         E-mail
       </span>
 
-      <div className="relative bg-input">
+      <div className="relative flex flex-col bg-input">
         <input
           {...register!('email', {
             required: true,
             pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
           })}
-          className="w-full input-autofill flex items-center pl-2 pr-2 text-[13px] outline-without leading-[1.85] bg-transparent xl:text-xl"
+          className="input-autofill flex items-center pl-2 pr-2 text-[13px] outline-without leading-[1.85] bg-transparent xl:text-xl"
           type="text"
           placeholder="johnsmith@email.com"
         />
