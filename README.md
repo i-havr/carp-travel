@@ -3,11 +3,13 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with
 [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## About
+## About project
 
 The application allows everyone to find a suitable type of vacation in the
 Carpathians. In addition, there is an opportunity to join a team of
-professionals organizing tourist leisure.
+professionals organizing tourist leisure. For this, feedback forms are available
+to the user. In addition, the user can view the available leisure activities in
+the form of a gallery.
 
 ### Technologies used in the project:
 

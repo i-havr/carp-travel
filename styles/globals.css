@@ -121,7 +121,7 @@ code {
   }
 }
 
-.menu-container {
+#menu-container {
   z-index: 5;
   background-color: rgba(1, 10, 5, 0.75);
   backdrop-filter: blur(15px);
