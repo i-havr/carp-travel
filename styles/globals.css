@@ -60,6 +60,20 @@ code {
     monospace;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .outline-without {
   outline: none;
   outline-offset: 0;
@@ -121,7 +135,7 @@ code {
   }
 }
 
-#menu-container {
+.menu-container {
   z-index: 5;
   background-color: rgba(1, 10, 5, 0.75);
   backdrop-filter: blur(15px);

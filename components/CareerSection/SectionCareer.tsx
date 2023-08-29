@@ -67,6 +67,7 @@ export const SectionCareer: React.FC = () => {
         } block w-full pt-[56px] pb-[56px]`}
           >
             <div className="container max-w-[480px] ml-auto mr-auto pr-5 pl-5">
+              <h2 className="visually-hidden">Section Career</h2>
               <div className="flex flex-col gap-6">
                 <div className="flex justify-end">
                   <CareerMotto />

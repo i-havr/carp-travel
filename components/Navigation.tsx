@@ -19,15 +19,11 @@ export const Navigation: React.FC = () => {
         className="font-inter font-normal text-sm uppercase leading-[1.21] tracking-[1.4px] z-10"
         type="button"
         onClick={handleToggleMenu}
-        aria-controls="menu-container"
       >
         {isModalOpen ? 'Close' : 'Menu'}
       </button>
       {isModalOpen && (
-        <div
-          id="menu-container"
-          className="absolute top-0 left-0 flex justify-center items-center w-screen h-screen"
-        >
+        <div className="menu-container absolute top-0 left-0 flex justify-center items-center w-screen h-screen">
           <NavMenu closeMenu={isModalOpen && handleToggleMenu} />
         </div>
       )}
