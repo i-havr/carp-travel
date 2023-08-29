@@ -11,10 +11,10 @@ export const ContactsPhone: React.FC = () => {
       md:w-[221px] md:text-base md:text-end md:leading-[1.5] 
       xl:w-[317px] xl:text-lg xl:leading-[1.33]"
       >
-        <li>
+        <li className="hover:opacity-50 focus:opacity-50 transition ease-out duration-300">
           <a href="tel:+380981234567">+38 (098) 12 34 567</a>
         </li>
-        <li>
+        <li className="hover:opacity-50 focus:opacity-50 transition ease-out duration-300">
           <a href="tel:+380731234567">+38 (073) 12 34 567</a>
         </li>
       </ul>

@@ -28,8 +28,9 @@ export const NavMenu: React.FC<Props> = ({ closeMenu }: Props) => {
             className="text-lg leading-[1.21] tracking-[1.4px] md:text-sm"
           >
             <Link
-              className="cursor-pointer"
+              className="cursor-pointer focus:opacity-50 hover:opacity-50 transition ease-out duration-300"
               to={`${nav.id}`}
+              href={`${nav.id}`}
               spy={true}
               smooth={true}
               offset={0}

@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import type { Metadata } from 'next';
+import { Header } from '@/components/Header';
 import { Inter } from 'next/font/google';
 
 export const metadata: Metadata = {
@@ -16,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans`}>{children}</body>
+      <body className={`${inter.variable} font-sans`}>
+        <Header />
+        <div id="menu-modal-root"></div>
+        {children}
+      </body>
     </html>
   );
 }

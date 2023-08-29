@@ -2,30 +2,34 @@
 
 import React, { useState } from 'react';
 import { NavMenu } from './NavMenu';
+import { NavButton } from './NavButton';
+import { MenuModal } from './MenuModal';
 import { useWindowWidth } from '@/hooks';
 
 export const Navigation: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
   const { isScreenMobile } = useWindowWidth();
 
   const handleToggleMenu: () => void = () => {
-    setIsModalOpen(!isModalOpen);
+    setIsMenuModalOpen(!isMenuModalOpen);
     document.body.classList.toggle('no-scroll');
   };
 
   return isScreenMobile ? (
     <>
-      <button
-        className="font-inter font-normal text-sm uppercase leading-[1.21] tracking-[1.4px] z-10"
-        type="button"
-        onClick={handleToggleMenu}
-      >
-        {isModalOpen ? 'Close' : 'Menu'}
-      </button>
-      {isModalOpen && (
-        <div className="menu-container absolute top-0 left-0 flex justify-center items-center w-screen h-screen">
-          <NavMenu closeMenu={isModalOpen && handleToggleMenu} />
-        </div>
+      <NavButton handleToggleMenu={handleToggleMenu}>Menu</NavButton>
+
+      {isMenuModalOpen && (
+        <MenuModal>
+          <div
+            className={`menu-container absolute top-0 left-0 flex flex-col justify-center items-center w-screen h-screen`}
+          >
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 max-w-[480px] w-full flex justify-end mx-auto pt-[44px] px-5">
+              <NavButton handleToggleMenu={handleToggleMenu}>Close</NavButton>
+            </div>
+            <NavMenu closeMenu={isMenuModalOpen && handleToggleMenu} />
+          </div>
+        </MenuModal>
       )}
     </>
   ) : (

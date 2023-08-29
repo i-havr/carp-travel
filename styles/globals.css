@@ -473,10 +473,16 @@ code {
   top: 100%;
   transform: translate(0, calc(-17px + -50%));
   pointer-events: none;
+  transition: opacity 300ms ease-out;
 
   @media screen and (min-width: 1280px) {
     width: 313px;
     transform: translate(0, -50%);
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 50%;
   }
 
   &::before {
@@ -502,10 +508,16 @@ code {
   top: 100%;
   transform: translate(0, calc(-17px + -50%));
   pointer-events: none;
+  transition: opacity 300ms ease-out;
 
   @media screen and (min-width: 1280px) {
     width: 313px;
     transform: translate(0, -50%);
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 50%;
   }
 
   &::before {

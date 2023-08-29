@@ -28,7 +28,7 @@ export const ServicesSlidesList: React.FC<Props> = ({
               className={`${
                 currentSlide === service.id
                   ? 'active-slide relative ml-5 font-medium opacity-100 pointer-events-none'
-                  : 'font-extralight opacity-50'
+                  : 'font-extralight opacity-50 focus:opacity-80 hover:opacity-80 transition ease-out duration-300'
               } relative text-xl text-left leading-[0.85] uppercase md:text-[22px] md:leading-[0.82] xl:text-[28px] xl:leading-[0.86]`}
               onClick={() => actionHandler(service.id)}
             >

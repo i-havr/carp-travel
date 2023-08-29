@@ -12,16 +12,16 @@ export const ContactsSocialNetworks: React.FC = () => {
       md:w-auto md:text-base md:leading-[1.5]
       xl:w-[317px] xl:text-lg xl:text-end xl:leading-[1.33]"
       >
-        <li>
+        <li className="hover:opacity-50 focus:opacity-50 transition ease-out duration-300">
           <a href="#">facebook</a>
         </li>
-        <li>
+        <li className="hover:opacity-50 focus:opacity-50 transition ease-out duration-300">
           <a href="#">instagram</a>
         </li>
-        <li>
+        <li className="hover:opacity-50 focus:opacity-50 transition ease-out duration-300">
           <a href="#">youtube</a>
         </li>
-        <li>
+        <li className="hover:opacity-50 focus:opacity-50 transition ease-out duration-300">
           <a href="#">tiktok</a>
         </li>
       </ul>

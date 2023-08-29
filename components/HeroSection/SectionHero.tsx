@@ -36,11 +36,9 @@ export const SectionHero: React.FC = () => {
       } 
         ${
           !isFirstRender && !isScreenDesktop ? 'section-hero' : ''
-        } block w-full  pt-9 pb-14 md:pt-6 md:pb-16 xl:pb-[104px] `}
+        } block w-full pt-[105px] pb-14 md:pt-[121px] md:pb-16 xl:pt-[106px] xl:pb-[104px]`}
     >
       <div className="container max-w-[480px] ml-auto mr-auto pr-5 pl-5 md:max-w-3xl md:pr-8 md:pl-8 xl:max-w-7xl xl:pr-6 xl:pl-6">
-        <Header />
-
         {isScreenMobile ? (
           <>
             <HeroTitle />
