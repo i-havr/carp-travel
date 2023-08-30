@@ -47,9 +47,7 @@ export const ServicesSwiper: React.FC<Props> = ({
       {services.map(service => {
         return (
           <SwiperSlide key={service.id} className="overflow-hidden">
-            {({ isActive }) => (
-              <ServicesImage service={service} isActive={isActive} />
-            )}
+            <ServicesImage service={service} />
           </SwiperSlide>
         );
       })}

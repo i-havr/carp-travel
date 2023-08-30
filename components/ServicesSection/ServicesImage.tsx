@@ -1,33 +1,22 @@
-import React from 'react';
+import Image from 'next/image';
 import { Service } from '@/helpers';
 
 interface Props {
   service: Service;
-  isActive?: boolean;
 }
 
-export const ServicesImage: React.FC<Props> = ({
-  service,
-  isActive,
-}: Props) => {
+export const ServicesImage: React.FC<Props> = ({ service }: Props) => {
   return (
-    <div className="overflow-hidden">
-      <picture>
-        <source
-          srcSet={`${service.imageDesktopUrl} 1x, ${service.imageDesktopRetinaUrl} 2x`}
-          media="(min-width: 1280px)"
-        />
-        <source
-          srcSet={`${service.imageMobileTabletUrl} 1x, ${service.imageMobileTabletRetinaUrl} 2x`}
-          media="(max-width: 1280px)"
-        />
-        <img
-          loading={isActive ? 'eager' : 'lazy'}
-          className="scale-[1.01]"
-          data-src={`${service.imageMobileTabletUrl}`}
-          alt={service.name}
-        />
-      </picture>
+    <div className="md:h-[370px] xl:h-[429px] overflow-hidden">
+      <Image
+        className="object-cover w-full h-full min-h-[213px]"
+        src={service.imageDesktopRetinaUrl}
+        width={280}
+        height={213}
+        alt={service.name}
+        quality={90}
+        priority
+      />
     </div>
   );
 };

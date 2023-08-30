@@ -1,4 +1,5 @@
 import React from 'react';
+import { careerData } from '@/helpers';
 
 export const CareerQuestionTitle: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ export const CareerQuestionTitle: React.FC = () => {
     md:mb-14 md:text-end
     xl:w-[317px] xl:text-4xl xl:md:leading-[1.08]"
     >
-      Why us ?
+      {careerData.careerQuestionTitle}
     </h3>
   );
 };

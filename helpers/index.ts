@@ -5,3 +5,4 @@ export * from './servicesData';
 export * from './setSectionBgStyle';
 export * from './careerData';
 export * from './galleryData';
+export * from './contactsData';

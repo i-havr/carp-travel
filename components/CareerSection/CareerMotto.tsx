@@ -1,4 +1,5 @@
 import React from 'react';
+import { careerData } from '@/helpers';
 
 export const CareerMotto: React.FC = () => {
   return (
@@ -7,8 +8,7 @@ export const CareerMotto: React.FC = () => {
       md:text-[13px] md:leading-[1.54]
       xl:w-[234px] xl:text-lg xl:leading-[1.33]"
     >
-      {`Don't miss your opportunity! Fill out the form right now and join our
-      team!`}
+      {careerData.motto}
     </p>
   );
 };

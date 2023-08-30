@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useState, useEffect } from 'react';
 
 import { Navigation } from 'swiper/modules';
@@ -48,9 +50,7 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
       <Swiper
         direction={'vertical'}
         loop
-        initialSlide={1}
-        lazyPreloaderClass="swiper-lazy-preloader"
-        centeredSlides={true}
+        initialSlide={2}
         slidesPerView={3}
         className="max-h-[1000px]"
         style={{
@@ -65,13 +65,8 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
               key={picture.id}
               className="overflow-hidden cursor-grab active:cursor-grabbing"
             >
-              {({ isActive, isNext, isPrev }) => (
-                <GalleryImage
-                  isActive={isActive}
-                  picture={picture}
-                  isPrev={isPrev}
-                  isNext={isNext}
-                />
+              {({ isActive }) => (
+                <GalleryImage isActive={isActive} picture={picture} />
               )}
             </SwiperSlide>
           );
@@ -95,13 +90,8 @@ export const GallerySwiper: React.FC<Props> = ({ isScreenMobile }: Props) => {
             key={picture.id}
             className="cursor-grab active:cursor-grabbing"
           >
-            {({ isActive, isNext, isPrev }) => (
-              <GalleryImage
-                picture={picture}
-                isActive={isActive}
-                isPrev={isPrev}
-                isNext={isNext}
-              />
+            {({ isActive }) => (
+              <GalleryImage picture={picture} isActive={isActive} />
             )}
           </SwiperSlide>
         );

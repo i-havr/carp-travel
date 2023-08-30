@@ -10,7 +10,7 @@ import { CareerFeatureDescription } from './CareerFeatureDescription';
 import { CareerMotto } from './CareerMotto';
 import { CareerForm } from './CareerForm';
 
-import { careerFeatures } from '@/helpers';
+import { careerData } from '@/helpers';
 import { useWindowWidth } from '@/hooks';
 
 export const SectionCareer: React.FC = () => {
@@ -45,7 +45,7 @@ export const SectionCareer: React.FC = () => {
                 </div>
               </div>
               <ul className="flex flex-col gap-4 w-[182px]">
-                {careerFeatures.map(feature => {
+                {careerData.careerFeatures.map(feature => {
                   return (
                     <li key={feature.id}>
                       <div className="flex flex-col gap-2">
@@ -101,7 +101,7 @@ export const SectionCareer: React.FC = () => {
               <div className="grid-career-item-3 flex flex-col">
                 <CareerQuestionTitle />
                 <ul className="flex flex-col gap-6">
-                  {careerFeatures.map(feature => {
+                  {careerData.careerFeatures.map(feature => {
                     return (
                       <li key={feature.id}>
                         <div className="flex flex-col gap-2 xl:flex-row xl:gap-6">
