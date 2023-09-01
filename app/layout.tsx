@@ -17,9 +17,6 @@ export const metadata: Metadata = {
       { url: 'assets/images/ogpLogo.jpg' },
     ],
   },
-  twitter: {
-    card: 'summary',
-  },
 };
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
