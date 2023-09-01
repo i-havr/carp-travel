@@ -12,7 +12,13 @@ export const metadata: Metadata = {
     title: 'CarpTravel',
     siteName: 'CarpTravel',
     description: 'Find the best leisure activities in the Carpathians',
-    images: [{ url: 'assets/images/ogpLogo.png' }],
+    images: [
+      { url: 'assets/images/ogpLogo.png' },
+      { url: 'assets/images/ogpLogo.jpg' },
+    ],
+  },
+  twitter: {
+    card: 'summary',
   },
 };
 
