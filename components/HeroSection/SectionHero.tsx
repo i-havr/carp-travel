@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Header } from '@/components/Header';
+import { Header } from '@/components/Header/Header';
 import { LinkButton } from './LinkButton';
 import { HeroTitle } from './HeroTitle';
 import { HeroMotto } from './HeroMotto';

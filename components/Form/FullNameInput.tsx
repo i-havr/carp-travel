@@ -1,11 +1,16 @@
 import React from 'react';
 
-import { InputProps } from './ContactsForm';
+import { InputProps } from '@/interfaces';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
-export const ContactsFormFullName: React.FC<InputProps> = ({
+interface Props {
+  extraStyles?: string | undefined;
+}
+
+export const FullNameInput: React.FC<InputProps & Props> = ({
   register,
   errors,
+  extraStyles,
 }) => {
   return (
     <label
@@ -23,7 +28,7 @@ export const ContactsFormFullName: React.FC<InputProps> = ({
           pattern: /^[a-zA-Z\s'-]+$/,
           minLength: 3,
         })}
-        className="w-full flex items-center pl-2 pr-2 text-[13px] outline-without leading-[1.85] bg-input md:w-[221px] xl:w-[293px] xl:h-7 xl:text-xl xl:leading-[1.2]"
+        className={`w-full flex items-center px-2 text-[13px] outline-without leading-[1.85] bg-input xl:text-xl ${extraStyles}`}
         type="text"
         placeholder="John Smith"
       />

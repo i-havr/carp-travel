@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { InputProps } from './';
+import { InputProps } from '@/interfaces';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
-export const CareerFormAgreementCheckbox: React.FC<InputProps> = ({
+export const AgreementCheckbox: React.FC<InputProps> = ({
   register,
   errors,
 }) => {

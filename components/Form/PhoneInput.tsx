@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Controller, Control } from 'react-hook-form';
-import { Inputs, InputProps } from './';
+import { Inputs, InputProps } from '@/interfaces';
 import { formatPhone } from '@/helpers';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
@@ -11,7 +11,7 @@ export interface InputPhoneProps extends InputProps {
   setFormattedPhone: (formattedValue: string | undefined) => void;
 }
 
-export const CareerFormPhone: React.FC<InputPhoneProps> = ({
+export const PhoneInput: React.FC<InputPhoneProps> = ({
   errors,
   formattedPhone,
   control,

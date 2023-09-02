@@ -1,11 +1,16 @@
 import React from 'react';
 
-import { InputProps } from './ContactsForm';
+import { InputProps } from '@/interfaces';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
-export const ContactsFormEmail: React.FC<InputProps> = ({
+interface Props {
+  extraStyles?: string | undefined;
+}
+
+export const EmailInput: React.FC<InputProps & Props> = ({
   register,
   errors,
+  extraStyles,
 }) => {
   return (
     <label
@@ -22,7 +27,7 @@ export const ContactsFormEmail: React.FC<InputProps> = ({
           required: true,
           pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
         })}
-        className="w-full input-autofill flex items-center pl-2 pr-2 text-[13px] outline-without leading-[1.85] bg-input xl:w-[293px] xl:h-7 xl:text-xl xl:leading-[1.2]"
+        className={`bg-input input-autofill flex items-center px-2 text-[13px] outline-without leading-[1.85] xl:text-xl ${extraStyles}`}
         type="text"
         placeholder="johnsmith@email.com"
       />
