@@ -1,16 +1,22 @@
 import React from 'react';
 
-import { InputProps } from '@/interfaces';
+import { Controller, Control } from 'react-hook-form';
+import { Inputs, InputProps } from '@/interfaces';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
 interface Props {
   extraStyles?: string | undefined;
+  control: Control<Inputs, any>;
+  savedData?: string | undefined;
+  handleInputChange: (field: string, value: string) => void;
 }
 
 export const FullNameInput: React.FC<InputProps & Props> = ({
-  register,
   errors,
   extraStyles,
+  control,
+  savedData,
+  handleInputChange,
 }) => {
   return (
     <label
@@ -22,15 +28,28 @@ export const FullNameInput: React.FC<InputProps & Props> = ({
         Full name
       </span>
 
-      <input
-        {...register!('fullName', {
+      <Controller
+        name="fullName"
+        defaultValue={savedData}
+        shouldUnregister
+        rules={{
           required: true,
           pattern: /^[a-zA-Z\s'-]+$/,
           minLength: 3,
-        })}
-        className={`w-full flex items-center px-2 text-[13px] outline-without leading-[1.85] bg-input xl:text-xl ${extraStyles}`}
-        type="text"
-        placeholder="John Smith"
+        }}
+        control={control}
+        render={({ field }) => (
+          <input
+            {...field}
+            onChange={e => {
+              field.onChange(e);
+              handleInputChange('fullName', e.target.value);
+            }}
+            className={`w-full flex items-center px-2 text-[13px] outline-without leading-[1.85] bg-input xl:text-xl ${extraStyles}`}
+            type="text"
+            placeholder="John Smith"
+          />
+        )}
       />
 
       {errors.fullName && (

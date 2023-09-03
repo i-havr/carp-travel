@@ -1,16 +1,22 @@
 import React from 'react';
 
-import { InputProps } from '@/interfaces';
+import { Controller, Control } from 'react-hook-form';
+import { Inputs, InputProps } from '@/interfaces';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
 interface Props {
   extraStyles?: string | undefined;
+  control: Control<Inputs, any>;
+  savedData?: string | undefined;
+  handleInputChange: (field: string, value: string) => void;
 }
 
 export const EmailInput: React.FC<InputProps & Props> = ({
-  register,
   errors,
   extraStyles,
+  control,
+  savedData,
+  handleInputChange,
 }) => {
   return (
     <label
@@ -22,14 +28,27 @@ export const EmailInput: React.FC<InputProps & Props> = ({
         E-mail
       </span>
 
-      <input
-        {...register!('email', {
+      <Controller
+        name="email"
+        defaultValue={savedData}
+        shouldUnregister
+        rules={{
           required: true,
           pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-        })}
-        className={`bg-input input-autofill flex items-center px-2 text-[13px] outline-without leading-[1.85] xl:text-xl ${extraStyles}`}
-        type="text"
-        placeholder="johnsmith@email.com"
+        }}
+        control={control}
+        render={({ field }) => (
+          <input
+            {...field}
+            onChange={e => {
+              field.onChange(e);
+              handleInputChange('email', e.target.value);
+            }}
+            className={`bg-input input-autofill flex items-center px-2 text-[13px] outline-without leading-[1.85] xl:text-xl ${extraStyles}`}
+            type="text"
+            placeholder="johnsmith@email.com"
+          />
+        )}
       />
 
       {errors.email && (

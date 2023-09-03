@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 
@@ -17,14 +17,48 @@ import toast from 'react-hot-toast';
 import { useWindowWidth } from '@/hooks';
 
 export const ContactsForm: React.FC = () => {
+  const [formData, setFormData] = useState<Inputs | any>();
+
   const {
-    register,
     handleSubmit,
+    control,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<Inputs>();
 
+  useEffect(() => {
+    const storedData = sessionStorage.getItem('contactsForm');
+
+    if (storedData) {
+      const savedData = JSON.parse(storedData);
+      setFormData(savedData);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (formData) {
+      for (const field in formData) {
+        setValue(field as keyof Inputs, formData[field]);
+      }
+    }
+  }, [formData, setValue]);
+
   const { isScreenMobile } = useWindowWidth();
+
+  const handleInputChange = (field: string, value: string) => {
+    const storedData = sessionStorage.getItem('contactsForm');
+
+    if (storedData) {
+      const updatedData = { ...JSON.parse(storedData), [field]: value };
+      sessionStorage.setItem('contactsForm', JSON.stringify(updatedData));
+    } else {
+      sessionStorage.setItem(
+        'contactsForm',
+        JSON.stringify({ [field]: value })
+      );
+    }
+  };
 
   const onSubmit: SubmitHandler<Inputs> = data => {
     toast.success('You have just sent data', {
@@ -34,7 +68,11 @@ export const ContactsForm: React.FC = () => {
 
     console.log('You have just sent data => ', data);
 
+    setFormData(undefined);
+
     reset();
+
+    sessionStorage.removeItem('contactsForm');
   };
 
   return (
@@ -45,16 +83,25 @@ export const ContactsForm: React.FC = () => {
           autoComplete="off"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <FullNameInput register={register} errors={errors} />
+          <FullNameInput
+            errors={errors}
+            control={control}
+            savedData={formData ? formData.fullName : ''}
+            handleInputChange={handleInputChange}
+          />
           <EmailInput
-            register={register}
             errors={errors}
             extraStyles="w-full"
+            control={control}
+            savedData={formData ? formData.email : ''}
+            handleInputChange={handleInputChange}
           />
           <MessageInput
-            register={register}
             errors={errors}
             errorExtraStyles="justify-center"
+            control={control}
+            savedData={formData ? formData.message : ''}
+            handleInputChange={handleInputChange}
           />
           <SubmitButton extraStyles="mt-[-9px]" />
         </form>
@@ -66,23 +113,29 @@ export const ContactsForm: React.FC = () => {
         >
           <div className="flex flex-col gap-4 xl:flex-row xl:w-full xl:justify-between">
             <FullNameInput
-              register={register}
               errors={errors}
               extraStyles="md:w-[221px] xl:w-[293px] xl:h-7 xl:leading-[1.2]"
+              control={control}
+              savedData={formData ? formData.fullName : ''}
+              handleInputChange={handleInputChange}
             />
             <EmailInput
-              register={register}
               errors={errors}
               extraStyles="w-full xl:w-[293px] xl:h-7 xl:leading-[1.2]"
+              control={control}
+              savedData={formData ? formData.email : ''}
+              handleInputChange={handleInputChange}
             />
           </div>
           <div className="w-full flex flex-col">
             <MessageInput
-              register={register}
               errors={errors}
               labelExtraStyles="md:mb-[16px] xl:mb-6"
               errorExtraStyles="justify-center"
               inputExtraStyles="xl:h-[174px] xl:leading-[1.2]"
+              control={control}
+              savedData={formData ? formData.message : ''}
+              handleInputChange={handleInputChange}
             />
             <SubmitButton />
           </div>

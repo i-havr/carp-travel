@@ -1,18 +1,44 @@
 import React from 'react';
 
-import { InputProps } from '@/interfaces';
+import { Controller, Control } from 'react-hook-form';
+import { Inputs, InputProps } from '@/interfaces';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
-export const AgreementCheckbox: React.FC<InputProps> = ({
-  register,
+interface Props {
+  control: Control<Inputs, any>;
+  isChecked: boolean;
+  setIsChecked: (b: boolean) => void;
+  handleInputChange: (field: string, value: boolean) => void;
+}
+
+export const AgreementCheckbox: React.FC<InputProps & Props> = ({
   errors,
+  control,
+  isChecked,
+  setIsChecked,
+  handleInputChange,
 }) => {
   return (
     <label className="relative flex items-start pl-[30px] font-extralight text-xs leading-[1.83] cursor-pointer xl:mt-3">
-      <input
-        {...register!('agree', { required: true })}
-        className="hidden-checkbox outline-without"
-        type="checkbox"
+      <Controller
+        name="agree"
+        shouldUnregister
+        rules={{
+          required: true,
+        }}
+        control={control}
+        render={({ field }) => (
+          <input
+            checked={isChecked}
+            onChange={e => {
+              field.onChange(e);
+              setIsChecked(e.target.checked);
+              handleInputChange('agree', e.target.checked);
+            }}
+            className="hidden-checkbox outline-without"
+            type="checkbox"
+          />
+        )}
       />
       <span className="custom-checkbox flex justify-center items-center p-[3px] bg-black">
         <span className="inner-checkbox-marker"></span>

@@ -8,25 +8,19 @@ import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 export interface InputPhoneProps extends InputProps {
   formattedPhone: string | undefined;
   control: Control<Inputs, any>;
+  savedData?: string | undefined;
   setFormattedPhone: (formattedValue: string | undefined) => void;
+  handleInputChange: (field: string, value: string) => void;
 }
 
 export const PhoneInput: React.FC<InputPhoneProps> = ({
   errors,
   formattedPhone,
   control,
+  savedData,
   setFormattedPhone,
+  handleInputChange,
 }) => {
-  const handlePhoneChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    const value = event.target.value;
-
-    const formattedValue = formatPhone(value);
-
-    setFormattedPhone(formattedValue);
-  };
-
   return (
     <label
       className={`relative flex flex-col ${
@@ -39,10 +33,9 @@ export const PhoneInput: React.FC<InputPhoneProps> = ({
 
       <Controller
         name="phone"
-        defaultValue=""
+        defaultValue={savedData}
         shouldUnregister
         rules={{
-          onChange: handlePhoneChange,
           required: true,
           pattern: /^\(\d{3}\) \d{2} \d{2} \d{3}$/,
         }}
@@ -50,6 +43,11 @@ export const PhoneInput: React.FC<InputPhoneProps> = ({
         render={({ field }) => (
           <input
             {...field}
+            onChange={e => {
+              field.onChange(e);
+              setFormattedPhone(formatPhone(e.target.value));
+              handleInputChange('phone', e.target.value);
+            }}
             className="flex items-center pl-10 pr-2 text-[13px] outline-without leading-[1.85] bg-input xl:pl-14 xl:text-xl"
             type="text"
             value={formattedPhone}

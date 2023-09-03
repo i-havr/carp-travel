@@ -1,9 +1,21 @@
 import React from 'react';
 
-import { InputProps } from '@/interfaces';
+import { Controller, Control } from 'react-hook-form';
+import { Inputs, InputProps } from '@/interfaces';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
-export const PositionInput: React.FC<InputProps> = ({ register, errors }) => {
+interface Props {
+  control: Control<Inputs, any>;
+  savedData?: string | undefined;
+  handleInputChange: (field: string, value: string) => void;
+}
+
+export const PositionInput: React.FC<InputProps & Props> = ({
+  errors,
+  control,
+  savedData,
+  handleInputChange,
+}) => {
   return (
     <label
       className={`relative flex flex-col ${
@@ -14,15 +26,28 @@ export const PositionInput: React.FC<InputProps> = ({ register, errors }) => {
         Position
       </span>
 
-      <input
-        {...register!('position', {
+      <Controller
+        name="position"
+        defaultValue={savedData}
+        shouldUnregister
+        rules={{
           required: true,
           pattern: /^[a-zA-Z\s,'-]+$/,
           minLength: 3,
-        })}
-        className="flex items-center px-2 text-[13px] outline-without leading-[1.85] bg-input xl:text-xl"
-        type="text"
-        placeholder="Movie maker"
+        }}
+        control={control}
+        render={({ field }) => (
+          <input
+            {...field}
+            onChange={e => {
+              field.onChange(e);
+              handleInputChange('position', e.target.value);
+            }}
+            className="flex items-center px-2 text-[13px] outline-without leading-[1.85] bg-input xl:text-xl"
+            type="text"
+            placeholder="Movie maker"
+          />
+        )}
       />
 
       {errors.position && (

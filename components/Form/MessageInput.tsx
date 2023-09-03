@@ -1,20 +1,26 @@
 import React from 'react';
 
-import { InputProps } from '@/interfaces';
+import { Controller, Control } from 'react-hook-form';
+import { Inputs, InputProps } from '@/interfaces';
 import SvgRedCross from '@/public/assets/icons/red-cross.svg';
 
 interface Props {
   labelExtraStyles?: string | undefined;
   errorExtraStyles?: string | undefined;
   inputExtraStyles?: string | undefined;
+  control: Control<Inputs, any>;
+  savedData?: string | undefined;
+  handleInputChange: (field: string, value: string) => void;
 }
 
 export const MessageInput: React.FC<InputProps & Props> = ({
-  register,
   errors,
   labelExtraStyles,
   errorExtraStyles,
   inputExtraStyles,
+  control,
+  savedData,
+  handleInputChange,
 }) => {
   return (
     <label
@@ -35,11 +41,27 @@ export const MessageInput: React.FC<InputProps & Props> = ({
         </span>
       )}
 
-      <textarea
-        {...register!('message', { required: true, minLength: 5 })}
-        className={`flex items-center h-[196px] px-2 text-[13px] resize-none outline-without leading-[1.85] bg-input 
+      <Controller
+        name="message"
+        defaultValue={savedData}
+        shouldUnregister
+        rules={{
+          required: true,
+          minLength: 5,
+        }}
+        control={control}
+        render={({ field }) => (
+          <textarea
+            {...field}
+            onChange={e => {
+              field.onChange(e);
+              handleInputChange('message', e.target.value);
+            }}
+            className={`flex items-center h-[196px] px-2 text-[13px] resize-none outline-without leading-[1.85] bg-input 
         md:h-[215px] xl:text-xl ${inputExtraStyles}`}
-        rows={8}
+            rows={8}
+          />
+        )}
       />
     </label>
   );
